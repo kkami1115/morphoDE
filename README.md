@@ -113,7 +113,8 @@ within-tumor DE: bulge/convex = IGKC·IGHG3·DHCR7 (immunoglobulin / cholesterol
 dent/concave = PTHLH·KRT17·FTH1 (hypoxia / invasion / keratinization). **D** all
 12 genes clear the geometry-breaking null (colored = observed, grey = null). **E**
 false-positive rate is nominal and power reaches 100 % by log-fold 0.02. **F** the
-two curvature-free definitions agree gene-for-gene (ρ≈0.86).*
+primary (normal-displacement) definition and a mean-curvature cross-check agree
+gene-for-gene (ρ≈0.86).*
 
 The interface itself — one open curved sheet, Z-truncated by the acquired tissue
 block, not a closed solid:
@@ -215,7 +216,8 @@ closed-surface analysis and are retained only so the correction is auditable.
   (B) composition decomposition (93 % within cell type); (C) within-tumor DE
   (bulge/convex = IGKC·IGHG3·DHCR7 immunoglobulin/cholesterol; dent/concave =
   PTHLH·KRT17·FTH1 hypoxia/invasion/keratinization); (D) geometry-breaking null,
-  12/12; (E) power curve; (F) two curvature-free definitions agree (ρ≈0.86).
+  12/12; (E) power curve; (F) the two shape definitions — normal displacement and
+  mean curvature — agree gene-for-gene (ρ≈0.86).
 - `concept_3d_still.png` / `concept_3d_rotate.mp4` — the interface as one open
   curved sheet, Z-truncated by the acquired block (demo hook).
 

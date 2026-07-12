@@ -7,8 +7,9 @@
 We tested the deliberately naive hypothesis that *"the boundary (interface)
 between domains of different cell types has protruding and recessed regions, and
 gene expression differs between them"* across **11 datasets and 126
-interface–strata (from human tumor to plant leaf).** Without using curvature (a
-continuous quantity), we extracted the **genuine open interface sheet** directly
+interface–strata (from human tumor to plant leaf).** The primary bulge/dent label
+uses no curvature (a continuous quantity); we extracted the **genuine open
+interface sheet** directly
 from the labelled point cloud — keeping only surface faces with sampled tissue on
 *both* sides, so the physical cut-faces of the acquired block are excluded — at a
 **density-adaptive resolution**. Bulge/dent is a binary label from the sheet's
@@ -118,7 +119,8 @@ a data limitation, not a failure of the effect.
   regeneration stages), the digital mouse embryo in 19 of 20 (four germ-layer
   interfaces × up to six specimens). The 16 perfect (12/12) interface–strata are
   phylogenetically unrelated — human tumor, macaque cerebellum, axolotl,
-  zebrafish, Arabidopsis, and many planarian time points.
+  zebrafish, mouse embryo (CNGB, endochondral bone), and many planarian time
+  points.
 - **The single zero-survivor** (mouse digital-embryo Paraxial mesoderm, one
   specimen): its expression difference tracks some other spatial structure
   (body-axis position), not the bulge/dent, so it disappears under the
