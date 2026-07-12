@@ -1,0 +1,5 @@
+interface,stage,n_domain_cells,n_stratum_cells,stratum,n_strata,rho_defs,n_genes,max_abs_lfc,n_null_sig,n_null_tested,mesh_verts,watertight
+Yolk Syncytial Layer,10hpf,3552,3552,all,1,0.3124144465476714,996,0.42856645584106445,0,12,5812,True
+"Segmental Plate, Tail Bud",10hpf,3953,3953,all,1,0.20350298574523212,1200,0.7759883403778076,0,12,7719,True
+Notochord,18hpf,3917,3917,all,1,0.3657614485947288,3571,0.5938491821289062,12,12,3949,True
+Nervous System,24hpf,14070,14070,all,1,0.17877929898017036,3400,0.3220183849334717,8,12,7024,True

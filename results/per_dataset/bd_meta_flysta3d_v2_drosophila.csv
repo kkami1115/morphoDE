@@ -1,0 +1,5 @@
+specimen,interface,n_domain_cells,n_stratum_cells,stratum,n_strata,rho_defs,n_genes,max_abs_lfc,n_null_sig,n_null_tested,mesh_verts,watertight
+PUPA-72h_cellbin,CNS primordium,19484,19484,all,1,0.6366493368698756,334,0.7014400959014893,3,12,2680,True
+PUPA-72h_cellbin,midgut primordium,10995,10995,all,1,0.4228216336025181,325,1.3446069955825806,10,12,2771,True
+PUPA-72h_cellbin,epidermis,49179,49179,all,1,0.486514584103814,294,0.7283210754394531,5,12,7583,True
+PUPA-72h_cellbin,somatic muscle,9492,9492,all,1,0.5135772874478913,368,0.6378006935119629,10,12,4450,True

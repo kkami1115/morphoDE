@@ -1,0 +1,5 @@
+interface,n_domain_cells,n_stratum_cells,stratum,n_strata,rho_defs,n_genes,max_abs_lfc,n_null_sig,n_null_tested,mesh_verts,watertight
+1-muscle,2629,2629,all,1,0.31867578696983023,12701,0.7205357551574707,3,12,3908,True
+2-craniofacial primordium,1466,1466,all,1,0.344440804172387,12816,0.44584357738494873,11,12,1328,True
+3-endochondral bone,1431,1431,all,1,0.18109730711954106,12576,0.5207611322402954,5,12,1930,True
+4-primordium of chondrocranium,1313,1313,all,1,0.42896387646663026,12561,0.5373048782348633,7,12,1616,True

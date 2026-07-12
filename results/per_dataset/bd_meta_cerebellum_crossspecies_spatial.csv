@@ -1,0 +1,5 @@
+interface,n_domain_cells,n_stratum_cells,stratum,n_strata,rho_defs,n_genes,max_abs_lfc,n_null_sig,n_null_tested,mesh_verts,watertight
+molecular layer|rest,4236478,4236478,all,1,0.5223556443843157,555,2.272113084793091,5,12,9912,True
+granular layer|rest,2339613,2339613,all,1,0.5369401986913581,3039,3.764741897583008,6,12,9548,True
+purkinje layer|rest,901107,901107,all,1,0.5319198743858998,2611,2.202134132385254,6,12,9710,True
+white matter|rest,903067,903067,all,1,0.552932442704085,433,0.6459183692932129,1,12,9218,True

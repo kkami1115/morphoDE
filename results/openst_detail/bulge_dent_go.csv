@@ -1,0 +1,424 @@
+side,source,term_id,term_name,p_value,intersection_size
+bulge,GO:CC,GO:0005615,extracellular space,3.0944443868970898e-18,47
+bulge,GO:BP,GO:0007155,cell adhesion,2.625777065996463e-15,33
+bulge,GO:CC,GO:0005576,extracellular region,3.973905571488747e-15,49
+bulge,GO:BP,GO:0009888,tissue development,1.99520069206458e-13,35
+bulge,GO:CC,GO:0070062,extracellular exosome,4.277521513457519e-12,33
+bulge,GO:CC,GO:1903561,extracellular vesicle,6.4176279562079804e-12,33
+bulge,GO:CC,GO:0043230,extracellular organelle,6.504246394234289e-12,33
+bulge,GO:CC,GO:0065010,extracellular membrane-bounded organelle,6.504246394234289e-12,33
+bulge,GO:CC,GO:0070161,anchoring junction,8.361348943494361e-12,23
+bulge,GO:BP,GO:0016477,cell migration,1.699783701289302e-09,27
+bulge,GO:BP,GO:0009611,response to wounding,1.966022900898383e-09,18
+bulge,GO:BP,GO:0042060,wound healing,4.931444301525359e-09,16
+bulge,GO:CC,GO:0031982,vesicle,6.115305741977082e-09,40
+bulge,GO:CC,GO:0071944,cell periphery,6.6373767974922865e-09,50
+bulge,GO:CC,GO:0005911,cell-cell junction,7.3383211541966925e-09,16
+bulge,KEGG,KEGG:04510,Focal adhesion,7.440695407872349e-09,14
+bulge,GO:BP,GO:0048870,cell motility,1.0492879303484619e-08,28
+bulge,KEGG,KEGG:04382,Cornified envelope formation,1.712309731478078e-08,14
+bulge,GO:MF,GO:0050839,cell adhesion molecule binding,2.133405126399445e-08,17
+bulge,GO:BP,GO:0031589,cell-substrate adhesion,3.725005767552431e-08,14
+bulge,KEGG,KEGG:04518,Integrin signaling,5.030517108610446e-08,12
+bulge,GO:BP,GO:0007160,cell-matrix adhesion,6.471549703032191e-08,12
+bulge,REAC,REAC:R-HSA-1474244,Extracellular matrix organization,7.171764229284644e-08,15
+bulge,KEGG,KEGG:05205,Proteoglycans in cancer,1.0832901195631865e-07,13
+bulge,GO:BP,GO:0034330,cell junction organization,1.0973432278768998e-07,19
+bulge,GO:BP,GO:0030334,regulation of cell migration,1.2611257781846482e-07,20
+bulge,GO:BP,GO:0048856,anatomical structure development,2.451533132021569e-07,48
+bulge,GO:BP,GO:2000145,regulation of cell motility,3.811905499130398e-07,20
+bulge,GO:CC,GO:0005604,basement membrane,4.6413724375199366e-07,8
+bulge,GO:BP,GO:0012501,programmed cell death,4.870621761189558e-07,27
+bulge,GO:BP,GO:0034329,cell junction assembly,5.022721763154036e-07,15
+bulge,GO:BP,GO:0008219,cell death,5.09903378728167e-07,27
+bulge,GO:BP,GO:0040012,regulation of locomotion,7.679416195213315e-07,20
+bulge,REAC,REAC:R-HSA-3000171,Non-integrin membrane-ECM interactions,8.256511581559128e-07,8
+bulge,KEGG,KEGG:04512,ECM-receptor interaction,8.626396556479677e-07,9
+bulge,REAC,REAC:R-HSA-2022090,Assembly of collagen fibrils and other multimeric structures,9.482239065319292e-07,8
+bulge,GO:BP,GO:0030335,positive regulation of cell migration,1.2544911468408882e-06,15
+bulge,REAC,REAC:R-HSA-446107,Type I hemidesmosome assembly,1.327331139569461e-06,5
+bulge,GO:BP,GO:0060429,epithelium development,2.1019285522759095e-06,21
+bulge,GO:BP,GO:0040011,locomotion,2.1640185043051417e-06,21
+bulge,GO:BP,GO:2000147,positive regulation of cell motility,2.4320150403833465e-06,15
+bulge,GO:BP,GO:0007044,cell-substrate junction assembly,2.5094088650597314e-06,8
+bulge,GO:BP,GO:0040017,positive regulation of locomotion,3.46039875804508e-06,15
+bulge,GO:BP,GO:0002009,morphogenesis of an epithelium,4.1927640890742666e-06,14
+bulge,REAC,REAC:R-HSA-3000170,Syndecan interactions,4.375687690866967e-06,6
+bulge,GO:BP,GO:0150115,cell-substrate junction organization,4.494811712810042e-06,8
+bulge,GO:BP,GO:0048513,animal organ development,4.524491350706128e-06,32
+bulge,GO:BP,GO:0006950,response to stress,4.8758089042107715e-06,37
+bulge,GO:BP,GO:0048522,positive regulation of cellular process,5.336158220852757e-06,45
+bulge,KEGG,KEGG:04820,Cytoskeleton in muscle cells,5.503613178453746e-06,12
+bulge,KEGG,KEGG:04066,HIF-1 signaling pathway,5.6123808072560955e-06,9
+bulge,GO:CC,GO:0031012,extracellular matrix,6.985930232092955e-06,11
+bulge,GO:CC,GO:0030312,external encapsulating structure,7.199641176534928e-06,11
+bulge,GO:BP,GO:0010810,regulation of cell-substrate adhesion,7.2653507324475726e-06,10
+bulge,GO:BP,GO:0032502,developmental process,8.092496278808338e-06,48
+bulge,REAC,REAC:R-HSA-8874081,MET activates PTK2 signaling,8.655386353701304e-06,6
+bulge,GO:CC,GO:0030055,cell-substrate junction,9.19904417809106e-06,12
+bulge,GO:BP,GO:0098609,cell-cell adhesion,1.005749007394305e-05,18
+bulge,GO:BP,GO:0048518,positive regulation of biological process,1.4554247339328479e-05,46
+bulge,GO:BP,GO:0001952,regulation of cell-matrix adhesion,1.917264343217045e-05,8
+bulge,REAC,REAC:R-HSA-1474290,Collagen formation,2.2849331571734598e-05,8
+bulge,GO:MF,GO:0045296,cadherin binding,3.623291115075706e-05,11
+bulge,GO:BP,GO:0006915,apoptotic process,3.69373653532919e-05,24
+bulge,GO:BP,GO:0050896,response to stimulus,4.96937348776908e-05,56
+bulge,GO:BP,GO:0048729,tissue morphogenesis,5.25352529636826e-05,14
+bulge,GO:BP,GO:0009605,response to external stimulus,5.3031940642316664e-05,27
+bulge,REAC,REAC:R-HSA-8875878,MET promotes cell motility,5.3402800679849924e-05,6
+bulge,REAC,REAC:R-HSA-1474228,Degradation of the extracellular matrix,5.898411635443142e-05,9
+bulge,GO:CC,GO:0030054,cell junction,6.0088593837845784e-05,25
+bulge,GO:CC,GO:0005737,cytoplasm,6.285507840300209e-05,65
+bulge,GO:CC,GO:0005925,focal adhesion,6.852653078377852e-05,11
+bulge,REAC,REAC:R-HSA-1500931,Cell-Cell communication,0.00010662293556087264,9
+bulge,GO:BP,GO:0009653,anatomical structure morphogenesis,0.00011926833323349811,28
+bulge,GO:BP,GO:0007275,multicellular organism development,0.00012529385210854373,38
+bulge,REAC,REAC:R-HSA-109582,Hemostasis,0.00012675589274445176,17
+bulge,GO:BP,GO:0045216,cell-cell junction organization,0.00013268234693319605,9
+bulge,GO:BP,GO:0030155,regulation of cell adhesion,0.00015494954366319572,15
+bulge,REAC,REAC:R-HSA-446728,Cell junction organization,0.00015836687259475932,8
+bulge,GO:CC,GO:0005886,plasma membrane,0.00018373621805687135,41
+bulge,GO:BP,GO:0043067,regulation of programmed cell death,0.0002320315614850458,20
+bulge,GO:BP,GO:0048646,anatomical structure formation involved in morphogenesis,0.0002464068455304616,18
+bulge,GO:BP,GO:0044419,biological process involved in interspecies interaction between organisms,0.0002509189440597514,22
+bulge,REAC,REAC:R-HSA-216083,Integrin cell surface interactions,0.00027955536786864756,7
+bulge,GO:BP,GO:0035633,maintenance of blood-brain barrier,0.0003511361392180833,5
+bulge,GO:BP,GO:0030154,cell differentiation,0.0003739578286795948,36
+bulge,REAC,REAC:R-HSA-3000157,Laminin interactions,0.00037510983024449863,5
+bulge,GO:BP,GO:0048869,cellular developmental process,0.00037616266720613304,36
+bulge,GO:BP,GO:0007565,female pregnancy,0.0003780140121705348,8
+bulge,GO:CC,GO:0045177,apical part of cell,0.0004115512598840973,11
+bulge,GO:BP,GO:0032501,multicellular organismal process,0.0004844295521866181,48
+bulge,GO:CC,GO:0098636,protein complex involved in cell adhesion,0.0004954542237870198,5
+bulge,GO:BP,GO:0042221,response to chemical,0.0005009606143286193,33
+bulge,GO:BP,GO:0090505,epiboly involved in wound healing,0.0005256512817684698,5
+bulge,GO:BP,GO:0044319,"wound healing, spreading of cells",0.0005256512817684698,5
+bulge,GO:MF,GO:0044877,protein-containing complex binding,0.0005520915014040408,18
+bulge,GO:CC,GO:0001533,cornified envelope,0.0005873533034034328,5
+bulge,GO:BP,GO:0090504,epiboly,0.0005969951698765729,5
+bulge,GO:BP,GO:0010755,regulation of plasminogen activation,0.00059752251353953,4
+bulge,REAC,REAC:R-HSA-2214320,Anchoring fibril formation,0.0006839993111265767,4
+bulge,GO:MF,GO:0042802,identical protein binding,0.0007320809508384595,24
+bulge,GO:BP,GO:0042981,regulation of apoptotic process,0.000734638118042112,19
+bulge,GO:BP,GO:0044703,multi-organism reproductive process,0.0008589488690400219,8
+bulge,REAC,REAC:R-HSA-1442490,Collagen degradation,0.0009327199750065994,6
+bulge,GO:BP,GO:0044706,multi-multicellular organism process,0.00120673664407047,8
+bulge,GO:BP,GO:0033627,cell adhesion mediated by integrin,0.0013516185494585947,6
+bulge,GO:MF,GO:0005178,integrin binding,0.0014735861864998978,7
+bulge,KEGG,KEGG:05165,Human papillomavirus infection,0.0014869972571861126,11
+bulge,GO:CC,GO:0044291,cell-cell contact zone,0.0015595162413703895,5
+bulge,GO:CC,GO:1904090,peptidase inhibitor complex,0.0018337134060276183,3
+bulge,GO:BP,GO:1903672,positive regulation of sprouting angiogenesis,0.002187286623003359,4
+bulge,GO:MF,GO:0005201,extracellular matrix structural constituent,0.002302216314243765,7
+bulge,GO:BP,GO:0051239,regulation of multicellular organismal process,0.002395614774910306,27
+bulge,GO:MF,GO:0050840,extracellular matrix binding,0.002522308199235866,5
+bulge,KEGG,KEGG:05412,Arrhythmogenic right ventricular cardiomyopathy,0.0025304353103869424,6
+bulge,REAC,REAC:R-HSA-6806834,Signaling by MET,0.0025718650891177297,6
+bulge,GO:BP,GO:0008544,epidermis development,0.002698407841221162,10
+bulge,GO:BP,GO:0032963,collagen metabolic process,0.0030192451570393722,6
+bulge,GO:BP,GO:0045766,positive regulation of angiogenesis,0.003306481430864985,7
+bulge,GO:BP,GO:1903034,regulation of response to wounding,0.003306481430864985,7
+bulge,GO:CC,GO:0034675,integrin alpha6-beta1 complex,0.0033491177251720717,2
+bulge,GO:CC,GO:0034674,integrin alpha5-beta1 complex,0.0033491177251720717,2
+bulge,GO:CC,GO:0009986,cell surface,0.0036583107484441635,13
+bulge,GO:BP,GO:0031639,plasminogen activation,0.0036629367942153383,4
+bulge,GO:BP,GO:0150105,protein localization to cell-cell junction,0.0036629367942153383,4
+bulge,GO:BP,GO:0035313,"wound healing, spreading of epidermal cells",0.0036629367942153383,4
+bulge,GO:BP,GO:0030162,regulation of proteolysis,0.0037337752084148864,7
+bulge,GO:BP,GO:1904018,positive regulation of vasculature development,0.0038860766520497983,7
+bulge,GO:BP,GO:0001944,vasculature development,0.0044712242096284745,13
+bulge,GO:BP,GO:0090109,regulation of cell-substrate junction assembly,0.004482890881970474,5
+bulge,GO:BP,GO:0051893,regulation of focal adhesion assembly,0.004482890881970474,5
+bulge,GO:BP,GO:0090303,positive regulation of wound healing,0.004482890881970474,5
+bulge,GO:CC,GO:0005788,endoplasmic reticulum lumen,0.00451646216880133,8
+bulge,KEGG,KEGG:05418,Fluid shear stress and atherosclerosis,0.00483860208862829,7
+bulge,KEGG,KEGG:05131,Shigellosis,0.00490650548554057,9
+bulge,GO:BP,GO:0002011,morphogenesis of an epithelial sheet,0.005267119703220532,5
+bulge,GO:BP,GO:0008283,cell population proliferation,0.0055693094264599365,21
+bulge,GO:BP,GO:0042127,regulation of cell population proliferation,0.005921462932618402,19
+bulge,GO:BP,GO:0016052,carbohydrate catabolic process,0.005933797271695263,7
+bulge,GO:BP,GO:0150116,regulation of cell-substrate junction organization,0.00664134724313487,5
+bulge,KEGG,KEGG:04974,Protein digestion and absorption,0.007006847161756229,6
+bulge,GO:BP,GO:0009135,purine nucleoside diphosphate metabolic process,0.0074166073633207385,6
+bulge,GO:BP,GO:0009179,purine ribonucleoside diphosphate metabolic process,0.0074166073633207385,6
+bulge,GO:BP,GO:0014850,response to muscle activity,0.007605648434448548,4
+bulge,GO:BP,GO:1903036,positive regulation of response to wounding,0.007703601483468708,5
+bulge,GO:CC,GO:0014704,intercalated disc,0.007727163607041123,4
+bulge,GO:BP,GO:0097435,supramolecular fiber organization,0.007838038116285901,13
+bulge,GO:BP,GO:0070887,cellular response to chemical stimulus,0.009222312023697502,22
+bulge,GO:BP,GO:0060249,anatomical structure homeostasis,0.009648635859039823,8
+bulge,GO:BP,GO:0001894,tissue homeostasis,0.009648635859039823,8
+bulge,KEGG,KEGG:05211,Renal cell carcinoma,0.01013991036126162,5
+bulge,GO:MF,GO:0005198,structural molecule activity,0.01036335672390695,15
+bulge,GO:BP,GO:0035295,tube development,0.01079602975164927,15
+bulge,GO:BP,GO:0045595,regulation of cell differentiation,0.01103491931744657,18
+bulge,KEGG,KEGG:05230,Central carbon metabolism in cancer,0.01161994871014562,5
+bulge,GO:CC,GO:0001726,ruffle,0.01198273720721089,6
+bulge,GO:BP,GO:0009185,ribonucleoside diphosphate metabolic process,0.012356438365233504,6
+bulge,GO:BP,GO:0009628,response to abiotic stimulus,0.012580763655834411,15
+bulge,GO:BP,GO:0051128,regulation of cellular component organization,0.013018052890774205,23
+bulge,GO:MF,GO:0030020,extracellular matrix structural constituent conferring tensile strength,0.014087447395269874,4
+bulge,GO:BP,GO:0007162,negative regulation of cell adhesion,0.014673130163911242,8
+bulge,KEGG,KEGG:04151,PI3K-Akt signaling pathway,0.015906152274937854,10
+bulge,GO:BP,GO:0009132,nucleoside diphosphate metabolic process,0.016010240626385584,6
+bulge,GO:BP,GO:1900748,positive regulation of vascular endothelial growth factor signaling pathway,0.0162809549711888,3
+bulge,KEGG,KEGG:04810,Regulation of actin cytoskeleton,0.01654646715250903,8
+bulge,GO:BP,GO:0001568,blood vessel development,0.016721880327731274,12
+bulge,GO:BP,GO:0072359,circulatory system development,0.016783219941404203,15
+bulge,KEGG,KEGG:05100,Bacterial invasion of epithelial cells,0.017066813187569783,5
+bulge,GO:BP,GO:0048041,focal adhesion assembly,0.01939510746263009,5
+bulge,REAC,REAC:R-HSA-9006934,Signaling by Receptor Tyrosine Kinases,0.020958780853125844,12
+bulge,GO:BP,GO:0030855,epithelial cell differentiation,0.02135973839269173,12
+bulge,GO:BP,GO:0035239,tube morphogenesis,0.021600373072470806,13
+bulge,GO:BP,GO:0035606,peptidyl-cysteine S-trans-nitrosylation,0.021757350109647026,2
+bulge,GO:BP,GO:1903670,regulation of sprouting angiogenesis,0.023825201809675404,4
+bulge,GO:BP,GO:0030198,extracellular matrix organization,0.02391347817345741,8
+bulge,GO:BP,GO:0051240,positive regulation of multicellular organismal process,0.02397444591615708,18
+bulge,GO:BP,GO:0043069,negative regulation of programmed cell death,0.024359947053765978,13
+bulge,GO:BP,GO:0043062,extracellular structure organization,0.024481342295391725,8
+bulge,GO:BP,GO:0045229,external encapsulating structure organization,0.02506052852428673,8
+bulge,REAC,REAC:R-HSA-75205,Dissolution of Fibrin Clot,0.02531145708743206,3
+bulge,GO:MF,GO:0005102,signaling receptor binding,0.02622178390440694,16
+bulge,GO:BP,GO:0002934,desmosome organization,0.026799194643579095,3
+bulge,GO:CC,GO:0016324,apical plasma membrane,0.02754585041369584,8
+bulge,GO:CC,GO:0015629,actin cytoskeleton,0.028309093434653737,9
+bulge,GO:BP,GO:0070482,response to oxygen levels,0.030123810900827646,8
+bulge,GO:CC,GO:0042383,sarcolemma,0.030445869888374708,5
+bulge,GO:BP,GO:0097193,intrinsic apoptotic signaling pathway,0.030813309973956038,8
+bulge,KEGG,KEGG:05135,Yersinia infection,0.03210694571169189,6
+bulge,GO:CC,GO:0005938,cell cortex,0.03230327690478958,7
+bulge,GO:CC,GO:0097433,dense body,0.03326497306973265,2
+bulge,GO:BP,GO:0030307,positive regulation of cell growth,0.03372365617319528,6
+bulge,GO:CC,GO:0012505,endomembrane system,0.03445377048469377,32
+bulge,GO:BP,GO:0031638,zymogen activation,0.03467599272017762,4
+bulge,GO:MF,GO:0005515,protein binding,0.03496494297245811,72
+bulge,GO:BP,GO:0043588,skin development,0.036021852444414984,8
+bulge,GO:BP,GO:0007043,cell-cell junction assembly,0.03626139501884409,6
+bulge,GO:BP,GO:0008284,positive regulation of cell population proliferation,0.03704396982266471,13
+bulge,GO:BP,GO:0002690,positive regulation of leukocyte chemotaxis,0.037739331368447655,5
+bulge,KEGG,KEGG:05222,Small cell lung cancer,0.04115176142190116,5
+bulge,GO:BP,GO:0001525,angiogenesis,0.041234429079530344,10
+bulge,GO:BP,GO:0048731,system development,0.04135105131767241,30
+bulge,GO:CC,GO:0031983,vesicle lumen,0.042216601621988516,7
+bulge,GO:BP,GO:0001667,ameboidal-type cell migration,0.042709762985212105,7
+bulge,GO:CC,GO:0030057,desmosome,0.04302497062923944,3
+bulge,GO:CC,GO:0098644,complex of collagen trimers,0.04302497062923944,3
+bulge,GO:BP,GO:0050793,regulation of developmental process,0.04564130575061224,22
+bulge,GO:BP,GO:2000026,regulation of multicellular organismal development,0.0458684009187636,16
+bulge,GO:BP,GO:0006096,glycolytic process,0.04617538807276043,5
+bulge,GO:CC,GO:0008305,integrin complex,0.0475158722613781,3
+bulge,GO:CC,GO:0097180,serine protease inhibitor complex,0.049784923676458454,2
+dent,GO:CC,GO:0022626,cytosolic ribosome,4.207862839476399e-57,34
+dent,REAC,REAC:R-HSA-156902,Peptide chain elongation,5.170571625449817e-52,34
+dent,REAC,REAC:R-HSA-156842,Eukaryotic Translation Elongation,3.1913186980602976e-51,34
+dent,REAC,REAC:R-HSA-192823,Viral mRNA Translation,8.874003382563462e-50,33
+dent,REAC,REAC:R-HSA-72764,Eukaryotic Translation Termination,5.116194719673657e-49,33
+dent,REAC,REAC:R-HSA-2408557,Selenocysteine synthesis,5.116194719673657e-49,33
+dent,REAC,REAC:R-HSA-975956,Nonsense Mediated Decay (NMD) independent of the Exon Junction Complex (EJC),1.1865421868779705e-48,33
+dent,REAC,REAC:R-HSA-9633012,Response of EIF2AK4 (GCN2) to amino acid deficiency,1.3061264002035416e-47,33
+dent,REAC,REAC:R-HSA-72689,Formation of a pool of free 40S subunits,1.3061264002035416e-47,33
+dent,GO:CC,GO:0044391,ribosomal subunit,4.785180189285848e-47,33
+dent,REAC,REAC:R-HSA-156827,L13a-mediated translational silencing of Ceruloplasmin expression,4.960671177008428e-46,33
+dent,REAC,REAC:R-HSA-72706,GTP hydrolysis and joining of the 60S ribosomal subunit,6.983344352933233e-46,33
+dent,REAC,REAC:R-HSA-1799339,SRP-dependent cotranslational protein targeting to membrane,6.983344352933233e-46,33
+dent,REAC,REAC:R-HSA-927802,Nonsense-Mediated Decay (NMD),1.9069974104131215e-45,33
+dent,REAC,REAC:R-HSA-975957,Nonsense Mediated Decay (NMD) enhanced by the Exon Junction Complex (EJC),1.9069974104131215e-45,33
+dent,REAC,REAC:R-HSA-2408522,Selenoamino acid metabolism,2.6472242748705062e-45,33
+dent,REAC,REAC:R-HSA-72613,Eukaryotic Translation Initiation,6.943296945156723e-45,33
+dent,REAC,REAC:R-HSA-72737,Cap-dependent Translation Initiation,6.943296945156723e-45,33
+dent,GO:BP,GO:0002181,cytoplasmic translation,1.0076519003367531e-44,33
+dent,REAC,REAC:R-HSA-168273,Influenza Viral RNA Transcription and Replication,3.3366083419452672e-43,33
+dent,REAC,REAC:R-HSA-168255,Influenza Infection,7.444052190893133e-41,33
+dent,REAC,REAC:R-HSA-9711097,Cellular response to starvation,1.503370861473599e-40,33
+dent,REAC,REAC:R-HSA-9010553,Regulation of expression of SLITs and ROBOs,3.3025822800689455e-39,33
+dent,REAC,REAC:R-HSA-6791226,Major pathway of rRNA processing in the nucleolus and cytosol,3.08143544508253e-38,33
+dent,REAC,REAC:R-HSA-8868773,rRNA processing in the nucleus and cytosol,2.0652533219155565e-37,33
+dent,REAC,REAC:R-HSA-72312,rRNA processing,1.2428729279661316e-36,33
+dent,KEGG,KEGG:03010,Ribosome,5.384009990142724e-36,33
+dent,REAC,REAC:R-HSA-376176,Signaling by ROBO receptors,1.5364329684269034e-35,33
+dent,KEGG,KEGG:05171,Coronavirus disease - COVID-19,1.8681154201610327e-34,34
+dent,GO:CC,GO:0005840,ribosome,4.13908581782368e-33,34
+dent,REAC,REAC:R-HSA-72766,Translation,1.1423195478967562e-32,34
+dent,GO:MF,GO:0003735,structural constituent of ribosome,2.483296193284783e-32,33
+dent,GO:BP,GO:0160307,protein biosynthetic process,6.836995928882037e-29,35
+dent,GO:BP,GO:0006412,translation,6.836995928882037e-29,35
+dent,REAC,REAC:R-HSA-71291,Metabolism of amino acids and derivatives,6.388030198386428e-28,33
+dent,GO:CC,GO:0022627,cytosolic small ribosomal subunit,1.5288395945918167e-27,16
+dent,GO:CC,GO:0022625,cytosolic large ribosomal subunit,1.8107057097533706e-27,17
+dent,REAC,REAC:R-HSA-9824446,Viral Infection Pathways,3.264176870931507e-27,43
+dent,REAC,REAC:R-HSA-2262752,Cellular responses to stress,2.143605023330228e-26,41
+dent,REAC,REAC:R-HSA-9735869,SARS-CoV-1 modulates host translation machinery,4.021875982294934e-26,17
+dent,REAC,REAC:R-HSA-5663205,Infectious disease,4.2752891195570086e-26,45
+dent,REAC,REAC:R-HSA-8953897,Cellular responses to stimuli,4.3043104057078783e-26,41
+dent,REAC,REAC:R-HSA-422475,Axon guidance,4.50346353391191e-26,36
+dent,REAC,REAC:R-HSA-9675108,Nervous system development,2.214573581304858e-25,36
+dent,GO:MF,GO:0005198,structural molecule activity,1.804585051713068e-24,37
+dent,GO:CC,GO:0015935,small ribosomal subunit,9.181533709125047e-23,16
+dent,GO:CC,GO:0015934,large ribosomal subunit,1.7868073313808306e-21,17
+dent,REAC,REAC:R-HSA-9692914,SARS-CoV-1-host interactions,2.0848821212802183e-21,19
+dent,REAC,REAC:R-HSA-9754678,SARS-CoV-2 modulates host translation machinery,3.388516810851248e-21,16
+dent,REAC,REAC:R-HSA-72695,"Formation of the ternary complex, and subsequently, the 43S complex",4.871519132175233e-21,16
+dent,REAC,REAC:R-HSA-72702,Ribosomal scanning and start codon recognition,4.99001226233275e-20,16
+dent,REAC,REAC:R-HSA-72649,Translation initiation complex formation,4.99001226233275e-20,16
+dent,REAC,REAC:R-HSA-72662,"Activation of the mRNA upon binding of the cap-binding complex and eIFs, and subsequent binding to 43S",6.772561857128663e-20,16
+dent,REAC,REAC:R-HSA-8953854,Metabolism of RNA,1.2008614285472297e-19,34
+dent,REAC,REAC:R-HSA-1430728,Metabolism,4.184668860529336e-19,51
+dent,REAC,REAC:R-HSA-9678108,SARS-CoV-1 Infection,5.164415209412988e-18,19
+dent,REAC,REAC:R-HSA-1643685,Disease,5.942196637929109e-17,46
+dent,GO:CC,GO:0005925,focal adhesion,1.2853568828284786e-16,21
+dent,GO:CC,GO:0030055,cell-substrate junction,2.0698578620836442e-16,21
+dent,GO:CC,GO:0032040,small-subunit processome,4.157635538473141e-15,12
+dent,REAC,REAC:R-HSA-392499,Metabolism of proteins,4.711336057199618e-14,45
+dent,GO:BP,GO:0042274,ribosomal small subunit biogenesis,6.467387055378707e-14,13
+dent,REAC,REAC:R-HSA-9705683,SARS-CoV-2-host interactions,8.358774644025516e-14,18
+dent,REAC,REAC:R-HSA-9679506,SARS-CoV Infections,1.3524846024344955e-13,24
+dent,GO:CC,GO:0030684,preribosome,3.602370577949168e-13,12
+dent,GO:BP,GO:0042254,ribosome biogenesis,9.519440070821574e-13,17
+dent,GO:CC,GO:0098803,respiratory chain complex,1.388736579406804e-12,12
+dent,GO:CC,GO:0070062,extracellular exosome,1.762692395380998e-12,33
+dent,GO:CC,GO:0032991,protein-containing complex,2.122658484225332e-12,60
+dent,GO:CC,GO:1903561,extracellular vesicle,2.6522099774194044e-12,33
+dent,GO:CC,GO:0043230,extracellular organelle,2.688264608176131e-12,33
+dent,GO:CC,GO:0065010,extracellular membrane-bounded organelle,2.688264608176131e-12,33
+dent,REAC,REAC:R-HSA-1266738,Developmental Biology,2.9347991445954716e-12,36
+dent,GO:MF,GO:0003723,RNA binding,5.2588152659445764e-11,39
+dent,GO:CC,GO:1990904,ribonucleoprotein complex,5.727851174313146e-11,35
+dent,REAC,REAC:R-HSA-9694516,SARS-CoV-2 Infection,8.373399685534177e-11,18
+dent,GO:BP,GO:0006119,oxidative phosphorylation,1.7446802349622027e-10,12
+dent,GO:CC,GO:0070161,anchoring junction,4.737039611660323e-10,21
+dent,GO:MF,GO:0015453,oxidoreduction-driven active transmembrane transporter activity,1.2295799000905192e-09,9
+dent,GO:BP,GO:0019646,aerobic electron transport chain,1.3180284037288046e-09,10
+dent,GO:BP,GO:0042775,mitochondrial ATP synthesis coupled electron transport,2.5183143575598066e-09,10
+dent,GO:BP,GO:0042773,ATP synthesis coupled electron transport,2.5183143575598066e-09,10
+dent,KEGG,KEGG:05012,Parkinson disease,8.999940912116406e-09,16
+dent,GO:CC,GO:0005615,extracellular space,1.1555191133500866e-08,35
+dent,GO:CC,GO:0030054,cell junction,1.1617787125356795e-08,30
+dent,GO:BP,GO:0022904,respiratory electron transport chain,1.1712308390355628e-08,10
+dent,KEGG,KEGG:05020,Prion disease,1.3245028243593586e-08,16
+dent,GO:BP,GO:0022900,electron transport chain,2.9616457007970076e-08,10
+dent,KEGG,KEGG:00190,Oxidative phosphorylation,3.118106395232495e-08,12
+dent,GO:CC,GO:0005737,cytoplasm,3.8253760758343683e-08,68
+dent,GO:MF,GO:0015078,proton transmembrane transporter activity,4.770451674514154e-08,11
+dent,GO:BP,GO:1902600,proton transmembrane transport,8.672874084125504e-08,11
+dent,GO:CC,GO:0016020,membrane,1.6093053484461502e-07,60
+dent,GO:MF,GO:0009055,electron transfer activity,1.9975724501169498e-07,9
+dent,GO:CC,GO:0005829,cytosol,2.644613754434921e-07,44
+dent,GO:MF,GO:0022853,active monoatomic ion transmembrane transporter activity,2.7314925433190364e-07,9
+dent,GO:BP,GO:0009060,aerobic respiration,6.091830041247129e-07,12
+dent,KEGG,KEGG:05016,Huntington disease,6.329893554899352e-07,15
+dent,GO:CC,GO:0042613,MHC class II protein complex,6.885529912805238e-07,5
+dent,KEGG,KEGG:05014,Amyotrophic lateral sclerosis,9.039467260209278e-07,16
+dent,GO:CC,GO:0031982,vesicle,1.0634765401841474e-06,36
+dent,GO:CC,GO:0071735,IgG immunoglobulin complex,2.4825644100469803e-06,4
+dent,REAC,REAC:R-HSA-1428517,Aerobic respiration and respiratory electron transport,2.537379835485623e-06,13
+dent,GO:BP,GO:0045333,cellular respiration,2.623147748782053e-06,12
+dent,GO:BP,GO:0019538,protein metabolic process,2.75712437980657e-06,39
+dent,GO:BP,GO:0042255,ribosome assembly,2.886151944957325e-06,7
+dent,KEGG,KEGG:05415,Diabetic cardiomyopathy,3.2067591182156792e-06,12
+dent,GO:CC,GO:0042611,MHC protein complex,4.643063217356373e-06,5
+dent,GO:BP,GO:0042776,proton motive force-driven mitochondrial ATP synthesis,5.658741437404961e-06,7
+dent,GO:MF,GO:0015399,primary active transmembrane transporter activity,6.067546649101123e-06,9
+dent,GO:BP,GO:0006364,rRNA processing,8.34600249504772e-06,10
+dent,GO:MF,GO:0003823,antigen binding,8.700836698166624e-06,9
+dent,KEGG,KEGG:05208,Chemical carcinogenesis - reactive oxygen species,9.466728539369424e-06,12
+dent,KEGG,KEGG:05010,Alzheimer disease,1.3372429536048238e-05,15
+dent,KEGG,KEGG:04714,Thermogenesis,1.4536584055600434e-05,12
+dent,GO:MF,GO:0023026,MHC class II protein complex binding,1.4625285961837243e-05,5
+dent,GO:BP,GO:0015986,proton motive force-driven ATP synthesis,1.667698283515118e-05,7
+dent,GO:CC,GO:0005576,extracellular region,1.7510120278085208e-05,35
+dent,REAC,REAC:R-HSA-611105,Respiratory electron transport,1.9931139913399056e-05,10
+dent,GO:CC,GO:0005730,nucleolus,3.310786569498693e-05,23
+dent,KEGG,KEGG:05022,Pathways of neurodegeneration - multiple diseases,3.584235119379072e-05,16
+dent,GO:CC,GO:1902495,transmembrane transporter complex,3.784548059280094e-05,12
+dent,GO:BP,GO:0016072,rRNA metabolic process,3.90225401008839e-05,10
+dent,GO:CC,GO:0005743,mitochondrial inner membrane,4.119021732552697e-05,12
+dent,GO:BP,GO:0015980,energy derivation by oxidation of organic compounds,4.124695396718174e-05,12
+dent,GO:CC,GO:0070069,cytochrome complex,4.601340586356123e-05,5
+dent,GO:CC,GO:1990351,transporter complex,5.854966519585226e-05,12
+dent,GO:BP,GO:0019886,antigen processing and presentation of exogenous peptide antigen via MHC class II,6.841648981591686e-05,5
+dent,GO:MF,GO:0023023,MHC protein complex binding,7.95990866711569e-05,5
+dent,GO:BP,GO:0006754,ATP biosynthetic process,0.00010189956995551713,7
+dent,GO:MF,GO:0019843,rRNA binding,0.00011352482611319259,6
+dent,GO:CC,GO:0019866,organelle inner membrane,0.0001228683749190172,12
+dent,GO:BP,GO:0002495,antigen processing and presentation of peptide antigen via MHC class II,0.00013867759040073758,5
+dent,GO:BP,GO:0002503,peptide antigen assembly with MHC class II protein complex,0.00015719216302039095,4
+dent,GO:BP,GO:0002399,MHC class II protein complex assembly,0.00015719216302039095,4
+dent,GO:BP,GO:0006091,generation of precursor metabolites and energy,0.0001666337954910519,12
+dent,GO:CC,GO:0045271,respiratory chain complex I,0.00019502992771536592,5
+dent,GO:CC,GO:0030964,NADH dehydrogenase complex,0.00019502992771536592,5
+dent,GO:BP,GO:0009206,purine ribonucleoside triphosphate biosynthetic process,0.00020822022542662708,7
+dent,GO:CC,GO:0098556,cytoplasmic side of rough endoplasmic reticulum membrane,0.00021887349296103738,3
+dent,GO:BP,GO:0009145,purine nucleoside triphosphate biosynthetic process,0.00022135936630323128,7
+dent,REAC,REAC:R-HSA-191273,Cholesterol biosynthesis,0.0002298383748499508,5
+dent,GO:MF,GO:0008137,NADH dehydrogenase (ubiquinone) activity,0.0002456784219302812,5
+dent,GO:MF,GO:0042605,peptide antigen binding,0.0002456784219302812,5
+dent,GO:BP,GO:0002504,antigen processing and presentation of peptide or polysaccharide antigen via MHC class II,0.00025682326523257976,5
+dent,GO:BP,GO:0015990,electron transport coupled proton transport,0.0002690768418107202,3
+dent,GO:BP,GO:0015988,"energy coupled proton transmembrane transport, against electrochemical gradient",0.0002690768418107202,3
+dent,GO:BP,GO:0009201,ribonucleoside triphosphate biosynthetic process,0.0002980498446176839,7
+dent,GO:CC,GO:0045277,respiratory chain complex IV,0.00030218861541622346,4
+dent,GO:CC,GO:0045202,synapse,0.0003399985513575744,19
+dent,GO:BP,GO:0002478,antigen processing and presentation of exogenous peptide antigen,0.0003401009629262637,5
+dent,GO:MF,GO:0003676,nucleic acid binding,0.000433504605509862,40
+dent,GO:BP,GO:0009142,nucleoside triphosphate biosynthetic process,0.0004927678496164436,7
+dent,GO:CC,GO:0012507,ER to Golgi transport vesicle membrane,0.0005426448035624463,5
+dent,GO:CC,GO:0005791,rough endoplasmic reticulum,0.0005895418178328163,5
+dent,GO:CC,GO:0043228,membraneless organelle,0.0006006042502380931,44
+dent,GO:CC,GO:0043232,intracellular membraneless organelle,0.0006006042502380931,44
+dent,GO:BP,GO:0002501,peptide antigen assembly with MHC protein complex,0.0006639366021877845,4
+dent,GO:BP,GO:0002396,MHC protein complex assembly,0.0006639366021877845,4
+dent,GO:CC,GO:0031966,mitochondrial membrane,0.0007212824523902501,13
+dent,GO:BP,GO:0000028,ribosomal small subunit assembly,0.0008387745906225746,4
+dent,GO:CC,GO:0098796,membrane protein complex,0.0009985520336454358,17
+dent,GO:BP,GO:0019884,antigen processing and presentation of exogenous antigen,0.0010143762848577095,5
+dent,GO:CC,GO:0098553,lumenal side of endoplasmic reticulum membrane,0.0010519884217723456,4
+dent,GO:BP,GO:0006123,"mitochondrial electron transport, cytochrome c to oxygen",0.0012883638255589871,4
+dent,GO:CC,GO:0005740,mitochondrial envelope,0.0013843948398492038,13
+dent,GO:CC,GO:0043226,organelle,0.0014338488694081593,72
+dent,GO:BP,GO:0001906,cell killing,0.0014523590766718545,8
+dent,GO:BP,GO:0019730,antimicrobial humoral response,0.0014552148103441247,7
+dent,GO:BP,GO:0030490,maturation of SSU-rRNA,0.001867175167041454,5
+dent,GO:BP,GO:0006120,"mitochondrial electron transport, NADH to ubiquinone",0.001867175167041454,5
+dent,GO:BP,GO:0009152,purine ribonucleotide biosynthetic process,0.002157918862330562,7
+dent,GO:CC,GO:0098576,lumenal side of membrane,0.0033001854099782998,4
+dent,GO:BP,GO:0006695,cholesterol biosynthetic process,0.0037880982786880507,5
+dent,GO:BP,GO:1902653,secondary alcohol biosynthetic process,0.0037880982786880507,5
+dent,GO:CC,GO:0043227,membrane-bounded organelle,0.003955923973631153,69
+dent,GO:CC,GO:0030134,COPII-coated ER to Golgi transport vesicle,0.004035424643244928,5
+dent,GO:BP,GO:0009260,ribonucleotide biosynthetic process,0.004107476690177374,7
+dent,GO:CC,GO:0005783,endoplasmic reticulum,0.005093645095475629,20
+dent,GO:BP,GO:0046390,ribose phosphate biosynthetic process,0.005143349445882046,7
+dent,GO:BP,GO:0048002,antigen processing and presentation of peptide antigen,0.006513245711084057,5
+dent,GO:BP,GO:0016126,sterol biosynthetic process,0.007003160499540102,5
+dent,GO:BP,GO:0006164,purine nucleotide biosynthetic process,0.007610128786589324,7
+dent,GO:MF,GO:0004129,cytochrome-c oxidase activity,0.008310682512617105,3
+dent,GO:CC,GO:0031967,organelle envelope,0.009930953486285534,15
+dent,GO:BP,GO:0002449,lymphocyte mediated immunity,0.01045717481849949,9
+dent,GO:CC,GO:0043233,organelle lumen,0.010461153037426368,40
+dent,GO:CC,GO:0070013,intracellular organelle lumen,0.010461153037426368,40
+dent,GO:CC,GO:0031974,membrane-enclosed lumen,0.010461153037426368,40
+dent,REAC,REAC:R-HSA-9837999,Mitochondrial protein degradation,0.015329661143450182,6
+dent,GO:MF,GO:0008324,monoatomic cation transmembrane transporter activity,0.0159979570667061,11
+dent,GO:CC,GO:1990204,oxidoreductase complex,0.016172897894284225,5
+dent,GO:CC,GO:0098554,cytoplasmic side of endoplasmic reticulum membrane,0.016208657603979763,3
+dent,KEGG,KEGG:04612,Antigen processing and presentation,0.01717413511326493,5
+dent,REAC,REAC:R-HSA-913531,Interferon Signaling,0.01789220281859683,9
+dent,KEGG,KEGG:05140,Leishmaniasis,0.01957976399762426,5
+dent,GO:CC,GO:0030666,endocytic vesicle membrane,0.020432626998741307,6
+dent,GO:MF,GO:0022804,active transmembrane transporter activity,0.02212977050225305,9
+dent,GO:BP,GO:0034101,erythrocyte homeostasis,0.022288037664044837,6
+dent,GO:BP,GO:0010257,NADH dehydrogenase complex assembly,0.02279953377217803,4
+dent,GO:BP,GO:0032981,mitochondrial respiratory chain complex I assembly,0.02279953377217803,4
+dent,GO:BP,GO:0009165,nucleotide biosynthetic process,0.02349553958904805,7
+dent,GO:BP,GO:0009058,biosynthetic process,0.02357119211508352,55
+dent,GO:BP,GO:0070482,response to oxygen levels,0.023815782266628376,8
+dent,GO:BP,GO:0046034,ATP metabolic process,0.027808022141814676,7
+dent,REAC,REAC:R-HSA-6799198,Complex I biogenesis,0.029554563357945863,5
+dent,GO:CC,GO:0030867,rough endoplasmic reticulum membrane,0.03041351330151088,3
+dent,GO:CC,GO:0030669,clathrin-coated endocytic vesicle membrane,0.03097036402258254,4
+dent,GO:BP,GO:0140694,membraneless organelle assembly,0.033309123012903,9
+dent,KEGG,KEGG:00100,Steroid biosynthesis,0.03813498995959968,3
+dent,KEGG,KEGG:04260,Cardiac muscle contraction,0.04433983163800775,5
+dent,GO:CC,GO:0043229,intracellular organelle,0.04551719321932173,68
+dent,GO:BP,GO:0044419,biological process involved in interspecies interaction between organisms,0.04637452811024854,18
+dent,REAC,REAC:R-HSA-2426168,Activation of gene expression by SREBF (SREBP),0.04911704749510191,4

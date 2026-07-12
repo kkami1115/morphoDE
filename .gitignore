@@ -1,0 +1,13 @@
+# raw data — never commit (see DATA.md for sources)
+*.h5ad
+*.h5ad.zst
+*.loom
+data/
+raw/
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+# os
+.DS_Store

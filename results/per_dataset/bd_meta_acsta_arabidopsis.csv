@@ -1,0 +1,2 @@
+interface,done,n_domain_cells,n_stratum_cells,stratum,n_strata,rho_defs,n_genes,max_abs_lfc,n_null_sig,n_null_tested,mesh_verts,watertight
+epidermis|rest,True,6317,6317,all,1,0.2508598130368272,1518,0.3435633182525635,4,12,11472,True

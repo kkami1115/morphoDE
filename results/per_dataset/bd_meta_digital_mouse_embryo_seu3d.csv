@@ -1,0 +1,5 @@
+interface,stratum,n_stratum_cells,n_domain_cells,n_strata,max_abs_lfc,n_null_sig,n_null_tested,rho_defs,n_genes,mesh_verts,watertight
+ExE endoderm,E8p0rep2,4821,16011,6,0.15464411382500143,9,12,0.7864802124858679,3400,7627,True
+Rostral neurectoderm,E7p75rep1,4189,15781,6,0.4745744474413325,0,12,0.7374524242127404,3614,3984,True
+Paraxial mesoderm,E8p0rep2,3887,9274,6,0.27030929146475235,3,12,0.797480342481952,3366,3160,True
+Gut,E8p0rep2,2761,7421,6,0.19165421948227712,8,12,0.8143239308059141,3355,4852,True

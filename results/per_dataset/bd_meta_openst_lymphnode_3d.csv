@@ -1,0 +1,2 @@
+interface,n_stratum_cells,stratum,max_abs_lfc,n_null_sig,n_null_tested,n_domain_cells,n_strata,rho_defs,n_genes,mesh_verts,watertight
+tumor|nontumor,296465,all,0.21526455879211426,12,12,296465,1,0.36469341485195694,3880,9772,True
