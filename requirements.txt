@@ -3,11 +3,10 @@
 numpy>=1.24
 scipy>=1.10
 pandas>=2.0
-scikit-learn>=1.3
-trimesh>=4.0
+scikit-image>=0.21      # marching_cubes for the open interface sheet
+trimesh>=4.0            # sheet smoothing / normals
 anndata>=0.10
 scanpy>=1.10
 matplotlib>=3.7
-# Interface extraction (upstream 3DCurv) provides st3d_interface.compute_interface;
-# it is not on PyPI — see DATA.md / the 3DCurv project.
-# GO enrichment (optional, network): gprofiler-official
+# The open interface sheet is extracted directly from the labelled point cloud
+# by src/open_interface.py — no external mesh-building package is required.

@@ -4,9 +4,11 @@
 
 **Do the convex ("bulge") and concave ("dent") parts of a cell-type interface
 express different genes?** We tested this deliberately naive hypothesis across
-**11 spatial-transcriptomics datasets and 38 tissue interfaces**, from a human
-tumor to a plant root tip, and found the correspondence holds broadly — it is a
-general property of tissue architecture, not a tumor-specific phenomenon.
+**11 spatial-transcriptomics datasets and 126 interface–strata**, from a human
+tumor to a plant leaf, and found the correspondence holds almost everywhere — it
+is a general property of tissue architecture, not a tumor-specific phenomenon,
+and it is reproducible across developmental stages, regeneration time points, and
+individual specimens of the same organism.
 
 > Built with **Claude Science** for the 2026 *Built with Claude: Life Sciences*
 > hackathon (Researcher Track). The biological question and the public datasets
@@ -15,11 +17,11 @@ general property of tissue architecture, not a tumor-specific phenomenon.
 
 ![Cross-species geometry-breaking null survival](figures/crossspecies_tree_of_life.png)
 
-*Each bar is one interface: the number of top differential-expression genes (out
-of 12) whose bulge-vs-dent signal survives a geometry-breaking null. Red = human
-tumor, blue = animal (embryo/brain/larva/regeneration), green = plant. Four
-phylogenetically unrelated interfaces (human tumor, axolotl brain VLMC,
-zebrafish notochord, planarian blastema `l4`) reach a perfect 12/12.*
+*Each dot is one interface–stratum: the number of top differential-expression
+genes (out of 12) whose bulge-vs-dent signal survives a geometry-breaking null.
+Rows are ordered phylogenetically (vertebrates → invertebrates → plant). Red =
+human tumor, blue = animal, green = plant; short vertical line = per-species
+median; hollow = zero survivors. Signal is present across the whole tree of life.*
 
 ---
 
@@ -28,23 +30,26 @@ zebrafish notochord, planarian blastema `l4`) reach a perfect 12/12.*
 | Metric | Value |
 |---|---|
 | Datasets tested | **11** |
-| Interfaces tested | **38** |
+| Interface–strata tested | **126** |
 | Datasets with ≥1 interface carrying signal | **11 / 11** |
-| Interfaces with ≥1 surviving gene | **35 / 38** |
-| Interfaces with ≥6/12 surviving | **19** |
-| Interfaces at a perfect 12/12 | **4** |
-| Interfaces with zero survivors | **3** |
+| Interface–strata with ≥1 surviving gene | **125 / 126** |
+| Interface–strata with ≥6/12 surviving | **97** |
+| Interface–strata at a perfect 12/12 | **16** |
+| Interface–strata with zero survivors | **1** |
 
 Species/organs spanned: **human** (HNSCC metastatic lymph node, Open-ST),
 **macaque** (cerebellum), **axolotl** (regenerating brain), **zebrafish**
-(embryo), **mouse** (three independent embryo atlases), **fly** (larva + embryo,
-Stereo-seq), **planarian** (regeneration), and **Arabidopsis** (root tip).
+(embryo), **mouse** (three independent embryo atlases), **fly** (larva + pupa,
+Stereo-seq), **planarian** (regeneration), and **Arabidopsis** (leaf).
 
-The 3 zero-survivor interfaces are not failures — they are the null *working*.
-They have real expression differences (e.g. mouse Rostral neurectoderm,
-max|lfc|=0.47) but those differences track **another spatial axis** (body-axis
-position), not the bulge/dent geometry, so the geometry-breaking null correctly
-rejects them.
+An **interface–stratum** is one cell-type interface measured within one
+developmental stage / regeneration time point / specimen. Multi-stage or
+multi-specimen datasets contribute one row per stratum, so the same interface is
+tested repeatedly across biological conditions — signal that holds across all of
+them is far stronger evidence than a single snapshot. The single zero-survivor
+(mouse digital-embryo *Paraxial mesoderm*, one specimen) is the null *working*:
+its expression differences track another spatial axis, not the bulge/dent
+geometry, so the geometry-breaking null correctly rejects it.
 
 ---
 
@@ -56,9 +61,10 @@ removed by construction:
 1. **Cell-type composition.** Bulges and dents contain different cell types.
    → We measure differential expression **within a single cell type**, and
    separately decompose the total difference into a composition term and a
-   within-cell-type term (Kitagawa/Oaxaca-style). In the human tumor, the split
-   is **61 % composition / 39 % within-cell-type**; the within-cell-type part is
-   the interesting residue.
+   within-cell-type term (Kitagawa/Oaxaca-style). On the human tumor's genuine
+   interface the split is **93 % within-cell-type / 7 % composition** — the
+   bulge/dent difference is overwhelmingly a change in what a single tumor cell
+   type expresses, not a reshuffling of cell types.
 
 2. **Spatial autocorrelation & "it's just a different location".** Neighboring
    cells are similar, so any two regions differ. The standard fix — a
@@ -72,21 +78,47 @@ removed by construction:
    than a spatially-smooth random relabeling?"*
 
 3. **Developmental stage / specimen (atlases only).** In a multi-stage atlas the
-   convex-hull score partly tracks stage/body size. → We always analyze **within
-   the largest single stage/specimen stratum**.
+   interface geometry partly tracks stage/body size. → We analyze **each stage /
+   specimen as its own interface–stratum** and report all of them, so a claim only
+   stands if it holds across biological conditions, not because we cherry-picked a
+   stratum.
 
-The null is validated two ways on the human tumor (`figures/null_calibration_power.png`):
-**false-positive rate is nominal** (p<0.05 in 3 % when expression is shuffled to
-zero true signal) and **power is 100 % at log-fold 0.02** — far below the observed
+The null is validated two ways on the human tumor (panel E of the proof figure):
+**false-positive rate is nominal** (p<0.05 in ~5 % when expression carries no true
+geometric signal) and **power is 100 % at log-fold 0.02** — far below the observed
 effect sizes.
 
-We never use curvature. Bulge/dent are defined purely by **convex-hull deviation**
-(global protrusion) and, as a sensitivity check, **smoothed-surface displacement**
-(local bumpiness).
+**The interface is an open surface, not a closed solid.** An earlier version used
+the convex hull of the domain, which closes the tissue block into a solid and
+mislabels the physical cut-faces of the acquired slab as "bulges." We now extract
+the **genuine open interface sheet** — keeping only surface faces that have
+sampled tissue on *both* sides (the real domain/non-domain boundary), which
+discards the block's cut-faces. The sheet's voxel resolution is **density-adaptive**
+(sized to the local cell density, no per-dataset hand-tuning). Bulge/dent are the
+**normal displacement** of this open sheet; a second **mean-curvature** definition
+agrees gene-for-gene (ρ≈0.86, 12/12 same sign). The sign is fixed to the physical
+surface orientation: **positive = convex = the domain protrudes into its neighbor
+(bulge)**, negative = concave = the domain recedes (dent).
 
 **Causal direction is not identifiable** from a single-time-point snapshot and is
 never claimed. We show only that a bulge/dent ↔ expression correspondence
 survives after removing composition, spatial structure, location, and stage.
+
+![Six-panel proof on the human tumor interface](figures/tumor_interface_proof.png)
+
+*The full evidence on the human tumor (Open-ST). **A** the genuine open interface
+sheet from two angles (red = bulge/convex, blue = dent/concave). **B** the
+bulge–dent difference is 93 % within cell type, only 7 % composition. **C**
+within-tumor DE: bulge/convex = IGKC·IGHG3·DHCR7 (immunoglobulin / cholesterol),
+dent/concave = PTHLH·KRT17·FTH1 (hypoxia / invasion / keratinization). **D** all
+12 genes clear the geometry-breaking null (colored = observed, grey = null). **E**
+false-positive rate is nominal and power reaches 100 % by log-fold 0.02. **F** the
+two curvature-free definitions agree gene-for-gene (ρ≈0.86).*
+
+The interface itself — one open curved sheet, Z-truncated by the acquired tissue
+block, not a closed solid:
+
+![The tumor interface as one open curved sheet](figures/concept_3d_still.png)
 
 ---
 
@@ -96,6 +128,17 @@ survives after removing composition, spatial structure, location, and stage.
   collapsed under SAR. Claude diagnosed *why* (SAR is unfair to a smooth
   geometric effect) and replaced it with the geometry-breaking null that puts the
   hypothesis on trial correctly.
+- **Caught and fixed a structural flaw mid-project.** The reviewer (the user)
+  noticed the human-tumor interface was being rendered as a closed blob when the
+  tissue was never acquired as a closed solid. Claude verified the problem
+  quantitatively (bulge cells' 60 µm neighborhoods were only ~4 % non-tumor — they
+  faced *unsampled space*, not the real boundary), rebuilt the method on the
+  genuine open interface sheet, and re-ran all 126 interface–strata. The
+  headline finding survived and sharpened (within-cell-type share 39 % → 93 %).
+- **Verified the geometry sign against data, not intuition.** When a red/blue
+  color looked backwards, Claude did not guess — it probed the sheet normal
+  (tumor-fraction 0.62 vs 0.33 across the surface) to fix the bulge/dent sign from
+  the physical surface orientation alone, then reported whatever biology followed.
 - **Fanned the analysis across 11 datasets** as independent parallel sub-agents
   (fresh kernels), each handling one dataset's interface extraction, stratum
   detection, within-cell-type DE, and null test.
@@ -107,23 +150,26 @@ survives after removing composition, spatial structure, location, and stage.
 
 ## Reproducing
 
-The pipeline is provided as an Agent Skill plus a batch driver.
+The whole method is three functions in `src/open_interface.py`, plus a skill of
+scoring/decomposition helpers.
 
 ```
-skill/interface-bulge-dent-de/   # SKILL.md + kernel.py — the method
-  SKILL.md                       # workflow, design rationale, when-to-use
-  kernel.py                      # compute_bulge_dent_scores, tercile,
-                                 # de_meandiff, decompose_de,
-                                 # azimuthal_shift_null, null_calibration, power_curve
-src/bulge_dent_driver.py         # per-dataset: interface → hull deviation →
-                                 # target-domain cells → stratum → within-type DE + null
+src/open_interface.py            # the method, self-contained:
+  extract_open_interface(...)    #   labelled point cloud → genuine open sheet
+                                 #   (both-sided faces only, density-adaptive pitch)
+  band_scores(...)              #   normal displacement (convex=bulge) on the
+                                 #   nearest-1/3 distance-quantile interface band
+  de_and_null(...)              #   within-cell-type DE + geometry-breaking null
+skill/interface-bulge-dent-de/   # SKILL.md + kernel.py — scoring/decomposition
+  kernel.py                      #   tercile, de_meandiff, decompose_de,
+                                 #   null_calibration, power_curve
+src/legacy_closed_mesh/          # the superseded closed-hull driver (provenance)
 ```
 
-**Inputs required per dataset:** a reconstructed 3D interface mesh (vertices +
-faces), per-cell signed distance to the interface, per-cell 3D coordinates,
-per-cell **cell-type annotations**, and a log-normalized expression matrix. Mesh
-construction and interface extraction (`st3d_interface.compute_interface`) come
-from the upstream 3DCurv project; this repo consumes its output.
+**Inputs required per dataset:** per-cell 3D coordinates, a per-cell domain /
+non-domain label (the interface is extracted *from the points*, no pre-built mesh
+needed), per-cell **cell-type annotations**, per-cell section id, and a
+log-normalized expression matrix.
 
 See [`DATA.md`](DATA.md) for the public sources of every dataset. Raw `.h5ad`
 files are **not** redistributed here (size + upstream licensing); `DATA.md` gives
@@ -132,12 +178,14 @@ the accession/URL for each.
 Minimal usage sketch:
 
 ```python
-# after loading the skill (defines the helpers in your kernel)
-from bulge_dent_driver import run_interface
-de, null, meta = run_interface(adata, interface_spec, skillns=globals())
+from open_interface import extract_open_interface, band_scores, de_and_null
+# XYZ: (n,3) coords; is_domain: (n,) bool; ann/section/Xn per cell
+V, F, genuine_frac = extract_open_interface(XYZ, is_domain)         # open sheet
+band, score, in_band = band_scores(XYZ, is_domain, V, F)            # bulge/dent
+de, null, meta = de_and_null(Xn[band], genes, score, XYZ[band], section[band])
 # de:   within-cell-type bulge-vs-dent log-fold per gene
 # null: geometry-breaking null p-value per top gene
-# meta: survivors, stratum, effect size, cell counts
+# meta: survivors, effect size, band cell counts
 ```
 
 ---
@@ -146,34 +194,34 @@ de, null, meta = run_interface(adata, interface_spec, skillns=globals())
 
 | Path | Contents |
 |---|---|
-| `results/bd_all_meta.csv` | Per-interface summary (survivors, stratum, effect size, ρ between the two definitions, cell counts) — 38 rows |
-| `results/bd_all_null.csv` | Per-interface × per-gene geometry-breaking null (456 rows) |
-| `results/bd_all_de.csv` | All-interface within-cell-type DE (161,407 rows) |
-| `results/per_dataset/bd_{de,null,meta}_<dataset>.csv` | Same, split by dataset (11 × 3) |
-| `results/openst_detail/` | Deep evidence on the human tumor: within-tumor DE, composition decomposition, geometry-null table, power curve, two-definition sensitivity, GO ORA |
-| `figures/` | The five figures (cross-species summary + the four-part openst proof + supporting panels) |
+| `results/bd_final_headline.csv` | **Primary result:** per-interface–stratum survivors / tested / band cells / genuine-fraction — 126 rows (open-surface method) |
+| `results/bd_final_full.json` | Per-interface–stratum gene list, log-fold, and null p-value for the 12 tested genes each |
+| `results/legacy_closed_mesh/` | The earlier closed-convex-hull results (38 interfaces) kept for provenance — **superseded**; see the method note in `DATA.md` |
 | `report/` | Full write-up (Japanese original + English translation) |
+
+`bd_final_headline.csv` / `bd_final_full.json` are the results the paper and
+figures are built on. The `legacy_closed_mesh/` tables reproduce the earlier
+closed-surface analysis and are retained only so the correction is auditable.
 
 ---
 
 ## Figures
 
 - `crossspecies_tree_of_life.png` — the cross-species headline (above): every
-  interface plotted against a cladogram, so the breadth across the tree of life
+  interface–stratum plotted by phylogeny, so the breadth across the tree of life
   is read directly.
 - `tumor_interface_proof.png` — six-panel proof on the human tumor: (A) the
-  reconstructed 3D interface mesh shown from two angles, colored bulge→dent;
-  (B) composition decomposition; (C) within-tumor DE (bulge = hypoxia/invasion
-  SLC2A1·EGLN3·PTHLH·KRT17; dent = immunoglobulin); (D) geometry-breaking null;
-  (E) power curve; (F) two-definition sensitivity.
-- `convexity_definitions.png` — the two curvature-free bulge/dent definitions and
-  their agreement (ρ≈0.36 — complementary scales).
-- `null_calibration_power.png` — null calibration (nominal false-positive rate)
-  + spike-in power curve.
-- `de_decomposition.png` — composition vs within-cell-type split of the total
-  difference.
+  genuine **open** interface sheet from two angles, colored bulge→dent;
+  (B) composition decomposition (93 % within cell type); (C) within-tumor DE
+  (bulge/convex = IGKC·IGHG3·DHCR7 immunoglobulin/cholesterol; dent/concave =
+  PTHLH·KRT17·FTH1 hypoxia/invasion/keratinization); (D) geometry-breaking null,
+  12/12; (E) power curve; (F) two curvature-free definitions agree (ρ≈0.86).
+- `concept_3d_still.png` / `concept_3d_rotate.mp4` — the interface as one open
+  curved sheet, Z-truncated by the acquired block (demo hook).
 
-All figure labels are in English.
+All figure labels are in English. The proof figure is self-contained; earlier
+standalone panels (`convexity_definitions.png`, `null_calibration_power.png`,
+`de_decomposition.png`) were folded into it.
 
 ---
 

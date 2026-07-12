@@ -1,0 +1,127 @@
+dataset,interface,stratum,survive,tested,n_band,genuine_frac
+openst_lymphnode_3d,tumor|nontumor,all,12,12,98822,0.543
+acsta_arabidopsis,epidermis|rest,all,11,12,2106,0.554
+zesta_zebrafish,Notochord,all,11,12,1306,0.532
+zesta_zebrafish,Nervous System,all,11,12,4690,0.673
+zesta_zebrafish,Yolk Syncytial Layer,all,12,12,1184,0.524
+zesta_zebrafish,"Segmental Plate, Tail Bud",all,10,12,1318,0.478
+flysta3d_v2_drosophila,CNS primordium|rest,all,9,12,6495,0.856
+flysta3d_v2_drosophila,midgut primordium|rest,all,5,12,3665,0.404
+flysta3d_v2_drosophila,epidermis|rest,all,11,12,16393,0.323
+flysta3d_v2_drosophila,somatic muscle|rest,all,6,12,3164,0.902
+mosta_mouse_embryo,Cavity|rest,all,5,12,78176,0.606
+mosta_mouse_embryo,Connective tissue|rest,all,1,12,88100,0.772
+mosta_mouse_embryo,Muscle|rest,all,3,12,65242,0.813
+mosta_mouse_embryo,Brain|rest,all,4,12,46951,0.746
+whole_mouse_embryo_3d_cngb,1-muscle|rest,all,4,12,877,0.45
+whole_mouse_embryo_3d_cngb,2-craniofacial primordium|rest,all,1,12,489,0.19
+whole_mouse_embryo_3d_cngb,3-endochondral bone|rest,all,12,12,477,0.423
+whole_mouse_embryo_3d_cngb,4-primordium of chondrocranium|rest,all,10,12,438,0.394
+flysta3d_drosophila,midgut|rest,E14-16h,7,12,662,1.0
+flysta3d_drosophila,midgut|rest,E16-18h,8,12,868,0.973
+flysta3d_drosophila,midgut|rest,L1,7,12,654,0.657
+flysta3d_drosophila,midgut|rest,L2,11,12,9671,0.492
+flysta3d_drosophila,midgut|rest,L3,10,12,4571,0.719
+flysta3d_drosophila,epidermis|rest,E14-16h,6,12,2093,0.606
+flysta3d_drosophila,epidermis|rest,E16-18h,11,12,1596,0.682
+flysta3d_drosophila,epidermis|rest,L1,6,12,1402,0.531
+flysta3d_drosophila,epidermis|rest,L2,3,12,2560,0.315
+flysta3d_drosophila,epidermis|rest,L3,10,12,1125,0.511
+flysta3d_drosophila,carcass|rest,E14-16h,11,12,227,0.152
+flysta3d_drosophila,carcass|rest,E16-18h,5,12,411,0.533
+flysta3d_drosophila,carcass|rest,L1,3,12,1060,0.345
+flysta3d_drosophila,carcass|rest,L2,10,12,2388,0.074
+flysta3d_drosophila,carcass|rest,L3,8,12,2167,0.426
+flysta3d_drosophila,fat body|rest,L2,5,12,2180,0.413
+flysta3d_drosophila,fat body|rest,L3,6,12,2210,0.791
+artista_axolotl_brain,VLMC|rest,10DPI,3,12,1585,0.194
+artista_axolotl_brain,VLMC|rest,15DPI,6,12,2092,0.272
+artista_axolotl_brain,VLMC|rest,20DPI,5,12,1297,0.2
+artista_axolotl_brain,VLMC|rest,2DPI,8,12,1272,0.195
+artista_axolotl_brain,VLMC|rest,5DPI,8,12,1038,0.172
+artista_axolotl_brain,MSN|rest,10DPI,12,12,1197,0.529
+artista_axolotl_brain,MSN|rest,15DPI,9,12,1502,0.542
+artista_axolotl_brain,MSN|rest,20DPI,10,12,1327,0.489
+artista_axolotl_brain,MSN|rest,2DPI,2,12,856,0.631
+artista_axolotl_brain,MSN|rest,5DPI,11,12,831,0.566
+artista_axolotl_brain,CMPN|rest,10DPI,11,12,756,0.399
+artista_axolotl_brain,CMPN|rest,15DPI,2,12,1580,0.477
+artista_axolotl_brain,CMPN|rest,20DPI,11,12,942,0.383
+artista_axolotl_brain,CMPN|rest,2DPI,8,12,789,0.294
+artista_axolotl_brain,CMPN|rest,5DPI,11,12,561,0.272
+artista_axolotl_brain,mpEX|rest,10DPI,12,12,721,0.375
+artista_axolotl_brain,mpEX|rest,15DPI,10,12,1077,0.461
+artista_axolotl_brain,mpEX|rest,20DPI,9,12,768,0.387
+artista_axolotl_brain,mpEX|rest,2DPI,9,12,754,0.243
+artista_axolotl_brain,mpEX|rest,5DPI,5,12,857,0.223
+digital_mouse_embryo_seu3d,ExE endoderm|rest,E7p5rep1,6,12,328,0.672
+digital_mouse_embryo_seu3d,ExE endoderm|rest,E7p5rep2,7,12,596,0.62
+digital_mouse_embryo_seu3d,ExE endoderm|rest,E7p75rep1,11,12,827,0.805
+digital_mouse_embryo_seu3d,ExE endoderm|rest,E7p75rep2,7,12,1528,0.654
+digital_mouse_embryo_seu3d,ExE endoderm|rest,E8p0rep1,2,12,452,0.472
+digital_mouse_embryo_seu3d,ExE endoderm|rest,E8p0rep2,10,12,1607,0.486
+digital_mouse_embryo_seu3d,Rostral neurectoderm|rest,E7p5rep1,6,12,1103,0.721
+digital_mouse_embryo_seu3d,Rostral neurectoderm|rest,E7p75rep1,4,12,1397,0.905
+digital_mouse_embryo_seu3d,Rostral neurectoderm|rest,E7p75rep2,4,12,1291,0.896
+digital_mouse_embryo_seu3d,Rostral neurectoderm|rest,E8p0rep1,7,12,383,0.913
+digital_mouse_embryo_seu3d,Rostral neurectoderm|rest,E8p0rep2,6,12,783,0.945
+digital_mouse_embryo_seu3d,Paraxial mesoderm|rest,E7p75rep1,5,12,521,0.469
+digital_mouse_embryo_seu3d,Paraxial mesoderm|rest,E7p75rep2,2,12,430,0.484
+digital_mouse_embryo_seu3d,Paraxial mesoderm|rest,E8p0rep1,6,12,743,0.462
+digital_mouse_embryo_seu3d,Paraxial mesoderm|rest,E8p0rep2,0,12,1296,0.726
+digital_mouse_embryo_seu3d,Gut|rest,E7p5rep1,7,12,223,0.715
+digital_mouse_embryo_seu3d,Gut|rest,E7p75rep1,1,12,346,0.631
+digital_mouse_embryo_seu3d,Gut|rest,E7p75rep2,8,12,610,0.486
+digital_mouse_embryo_seu3d,Gut|rest,E8p0rep1,7,12,263,0.483
+digital_mouse_embryo_seu3d,Gut|rest,E8p0rep2,9,12,921,0.355
+cerebellum_crossspecies_spatial,molecular layer|rest,all,12,12,1412160,0.711
+cerebellum_crossspecies_spatial,granular layer|rest,all,7,12,779871,0.783
+cerebellum_crossspecies_spatial,purkinje layer|rest,all,10,12,300369,0.356
+cerebellum_crossspecies_spatial,white matter|rest,all,12,12,301023,0.424
+prista4d_planarian,l3|rest,0hpa1,11,12,6876,0.531
+prista4d_planarian,l3|rest,0hpa2,11,12,12435,0.481
+prista4d_planarian,l3|rest,10dpa1,3,12,2594,0.35
+prista4d_planarian,l3|rest,10dpa2,10,12,994,0.26
+prista4d_planarian,l3|rest,12hpa1,12,12,6920,0.507
+prista4d_planarian,l3|rest,12hpa2,12,12,10125,0.517
+prista4d_planarian,l3|rest,14dpa1,7,12,2085,0.337
+prista4d_planarian,l3|rest,14dpa2,4,12,2838,0.27
+prista4d_planarian,l3|rest,36hpa1,9,12,12348,0.25
+prista4d_planarian,l3|rest,36hpa2,11,12,10572,0.361
+prista4d_planarian,l3|rest,3dpa1,7,12,7024,0.454
+prista4d_planarian,l3|rest,3dpa2,12,12,6510,0.345
+prista4d_planarian,l3|rest,5dpa1,12,12,5765,0.306
+prista4d_planarian,l3|rest,5dpa2,11,12,6735,0.32
+prista4d_planarian,l3|rest,7dpa1,12,12,3625,0.213
+prista4d_planarian,l3|rest,7dpa2,7,12,6772,0.231
+prista4d_planarian,l4|rest,0hpa1,10,12,97335,0.448
+prista4d_planarian,l4|rest,0hpa2,11,12,124841,0.433
+prista4d_planarian,l4|rest,10dpa1,11,12,28412,0.269
+prista4d_planarian,l4|rest,10dpa2,12,12,17515,0.261
+prista4d_planarian,l4|rest,12hpa1,10,12,78424,0.514
+prista4d_planarian,l4|rest,12hpa2,5,12,63281,0.52
+prista4d_planarian,l4|rest,14dpa1,11,12,18069,0.248
+prista4d_planarian,l4|rest,14dpa2,9,12,35921,0.295
+prista4d_planarian,l4|rest,36hpa1,6,12,87432,0.249
+prista4d_planarian,l4|rest,36hpa2,5,12,74356,0.408
+prista4d_planarian,l4|rest,3dpa1,7,12,49991,0.529
+prista4d_planarian,l4|rest,3dpa2,7,12,55590,0.404
+prista4d_planarian,l4|rest,5dpa1,11,12,42484,0.402
+prista4d_planarian,l4|rest,5dpa2,6,12,87167,0.339
+prista4d_planarian,l4|rest,7dpa1,7,12,29783,0.231
+prista4d_planarian,l4|rest,7dpa2,11,12,30227,0.217
+prista4d_planarian,l5|rest,0hpa1,4,12,5542,0.377
+prista4d_planarian,l5|rest,0hpa2,2,12,8131,0.378
+prista4d_planarian,l5|rest,10dpa1,11,12,3857,0.225
+prista4d_planarian,l5|rest,12hpa1,12,12,8804,0.521
+prista4d_planarian,l5|rest,12hpa2,10,12,6560,0.572
+prista4d_planarian,l5|rest,14dpa1,9,12,2061,0.3
+prista4d_planarian,l5|rest,14dpa2,8,12,2481,0.277
+prista4d_planarian,l5|rest,36hpa1,11,12,11057,0.22
+prista4d_planarian,l5|rest,36hpa2,12,12,10603,0.375
+prista4d_planarian,l5|rest,3dpa1,12,12,5516,0.433
+prista4d_planarian,l5|rest,3dpa2,6,12,7632,0.442
+prista4d_planarian,l5|rest,5dpa1,9,12,3957,0.344
+prista4d_planarian,l5|rest,5dpa2,9,12,7703,0.334
+prista4d_planarian,l5|rest,7dpa1,10,12,2762,0.242
+prista4d_planarian,l5|rest,7dpa2,10,12,1795,0.154

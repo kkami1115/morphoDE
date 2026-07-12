@@ -6,9 +6,9 @@ licensing). Each dataset below lists its accession, DOI, and download URL so the
 analysis can be reproduced from primary sources. Only the derived result tables and
 figures are included here (see `results/` and `figures/`).
 
-Interface meshes and per-cell signed-distance fields are produced by the upstream
-**3DCurv** interface-extraction step (`st3d_interface.compute_interface`); this repo
-consumes that output. All datasets are Stereo-seq unless noted.
+The open interface sheet is extracted directly from each dataset's labelled 3D
+point cloud by `src/open_interface.py` (no pre-built mesh is required). All
+datasets are Stereo-seq unless noted.
 
 | # | Dataset (this repo) | Name | Species | Technology | Accession | DOI | Source |
 |---|---|---|---|---|---|---|---|
@@ -43,15 +43,26 @@ consumes that output. All datasets are Stereo-seq unless noted.
   absent from the deposited data, so z-spacing between reconstructed sections is
   uneven (≈29 µm typical, up to ≈174 µm across the widest gap). This is a
   property of the public dataset, not of this pipeline.
-- **The interface mesh is the largest connected tumor component.** Mesh
-  reconstruction voxelizes the domain, extracts an iso-surface (marching cubes),
-  and keeps only the largest connected component (tiny disconnected islands are
-  dropped) so that the convex-hull deviation is measured on one continuous
-  surface. For the Open-ST tumor this retains **16 of the 19 sections**
-  (209,281 tumor cells); sections 2–4 (46,575 cells) form a piece separated from
-  the main mass by the large z-gap above and are excluded from the mesh. Bulge/
-  dent scores and all downstream DE are computed on the retained connected
-  interface.
+- **The interface is a genuine OPEN surface, not a closed solid.** The bulge/dent
+  score is computed on the true domain / non-domain boundary. We voxelize both
+  the domain and its non-domain neighborhood, extract an iso-surface of the
+  domain-fraction field (marching cubes), and **keep only faces that have sampled
+  tissue on both sides** — this discards the physical cut-faces of the acquired
+  tissue block (the flat top/bottom of the serial-section slab), which are not a
+  real tissue interface. The surface voxel resolution is **density-adaptive**
+  (edge length sized to local cell density; no per-dataset hand-tuning). Bulge/
+  dent is the normal displacement of this open sheet, with the sign fixed to the
+  physical surface orientation (positive = convex = the domain protrudes into its
+  neighbor).
+- **Method correction (mid-project).** An earlier version of this analysis used
+  the convex hull of the domain, which closes the acquired block into a solid and
+  mislabels its cut-faces as "bulges." That flaw was caught and the entire
+  analysis (126 interface–strata) was re-run on the open interface described
+  above. The superseded closed-hull result tables (38 interfaces) are retained in
+  `results/legacy_closed_mesh/` for provenance only. On thin-slab datasets (MOSTA,
+  CNGB: only ~9–13 serial sections in Z) the open-sheet resolution — and hence
+  sensitivity — is limited by the sparse Z sampling; this is a data limitation,
+  documented rather than hidden.
 
 This repository's own code, skill, and derived tables/figures are MIT-licensed
 (see `LICENSE`); each raw dataset retains its upstream license.
