@@ -2,8 +2,11 @@
 *.h5ad
 *.h5ad.zst
 *.loom
-data/
 raw/
+# ignore downloaded dataset payloads, but keep the ledger + downloader lockfiles
+data/*
+!data/catalog.csv
+!data/**/CHECKSUMS.sha256
 # python
 __pycache__/
 *.pyc

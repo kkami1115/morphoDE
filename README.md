@@ -172,9 +172,23 @@ non-domain label (the interface is extracted *from the points*, no pre-built mes
 needed), per-cell **cell-type annotations**, per-cell section id, and a
 log-normalized expression matrix.
 
-See [`DATA.md`](DATA.md) for the public sources of every dataset. Raw `.h5ad`
-files are **not** redistributed here (size + upstream licensing); `DATA.md` gives
-the accession/URL for each.
+**Getting the data.** Raw `.h5ad` files are **not** redistributed here (size +
+upstream licensing). The data layer is reproducible from two files:
+
+- [`data/catalog.csv`](data/catalog.csv) — machine-readable ledger of all 11
+  datasets (accession, DOI, URL, license, source, access class).
+- [`scripts/download.py`](scripts/download.py) — catalog-driven, resumable,
+  checksum-verified downloader.
+
+```bash
+python3 scripts/download.py --list          # catalog + access class
+python3 scripts/download.py --all           # fetch every auto-downloadable dataset
+python3 scripts/download.py mosta_mouse_embryo   # or one at a time
+```
+
+Datasets download as plain `.h5ad`. See [`DATA.md`](DATA.md) for the full source
+table, licensing notes, and how the two controlled/portal-only datasets are
+obtained.
 
 Minimal usage sketch:
 
