@@ -249,19 +249,19 @@ A captured run is in [`results/smoke_test.log`](results/smoke_test.log).
   (e.g. acsta 2106, openst 98822, cerebellum molecular-layer 1 412 160, mosta
   per-domain `n_band` to the cell), confirming the coordinate assembly and mesh
   extraction re-derive the published interface.
-- **The single non-match is a deliberate correction, not a discrepancy.** The
+- **The single non-match is a corrected normalization.** The
   zesta Segmental-Plate interface gives 8/12 here vs the published 10/12. The
   published run fed this interface through the DE step with `is_raw=True`, which
   applies a library-size + log1p normalization — but the zesta matrix is *already*
   log-normalized (max ≈ 7, non-integer values, raw counts kept in a separate
   `counts` layer), so that step double-normalized it. `reproduce.py` normalizes
   only matrices that are actually raw counts (acsta, whole_mouse, cerebellum,
-  prista4d), and leaves zesta's already-log matrix untouched. That is the
-  scientifically correct treatment and the only place the fresh count departs from
-  the headline; the other three zesta interfaces (Notochord 11/12, Nervous System
-  11/12, Yolk Syncytial Layer 12/12) are unaffected and match exactly. Treat the
-  shipped `bd_final_*` tables as the published answer of record; `reproduce.py`
-  reproduces them exactly everywhere except this one corrected value.
+  prista4d), and leaves zesta's already-log matrix untouched. This is the only
+  place the fresh count departs from the headline; the other three zesta interfaces
+  (Notochord 11/12, Nervous System 11/12, Yolk Syncytial Layer 12/12) are
+  unaffected and match exactly. Treat the shipped `bd_final_*` tables as the
+  published answer of record; `reproduce.py` reproduces them exactly everywhere
+  except this one value, where it avoids the double normalization.
 - **Faithful loading is per-dataset.** Reproducing the numbers requires each
   dataset's published assembly (which specimen a `stratum='all'` row uses, whether
   serial sections are rigidly registered, how z is assigned, the normalization
