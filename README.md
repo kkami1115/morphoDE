@@ -151,56 +151,112 @@ block, not a closed solid:
 
 ## Reproducing
 
-The whole method is three functions in `src/open_interface.py`, plus a skill of
-scoring/decomposition helpers.
+Everything below runs from this repository. The pipeline is:
 
 ```
-src/open_interface.py            # the method, self-contained:
-  extract_open_interface(...)    #   labelled point cloud → genuine open sheet
-                                 #   (both-sided faces only, density-adaptive pitch)
-  band_scores(...)              #   normal displacement (convex=bulge) on the
-                                 #   nearest-1/3 distance-quantile interface band
-  de_and_null(...)              #   within-cell-type DE + geometry-breaking null
-skill/interface-bulge-dent-de/   # SKILL.md + kernel.py — scoring/decomposition
-  kernel.py                      #   tercile, de_meandiff, decompose_de,
-                                 #   null_calibration, power_curve
-src/legacy_closed_mesh/          # the superseded closed-hull driver (provenance)
+data/catalog.csv  ─ scripts/download.py ─→  <dataset>/*.h5ad
+        │                                          │
+        │  data/recipes.csv (which interface,      │
+        │  which stratum, per dataset)             ▼
+        └──────────────→  scripts/reproduce.py  ──→  results/<dataset>_bd.csv
+                              │  loads via src/st3d_loader.py + src/st3d_adapters.py
+                              │  runs the method in src/open_interface.py
 ```
 
-**Inputs required per dataset:** per-cell 3D coordinates, a per-cell domain /
-non-domain label (the interface is extracted *from the points*, no pre-built mesh
-needed), per-cell **cell-type annotations**, per-cell section id, and a
-log-normalized expression matrix.
-
-**Getting the data.** Raw `.h5ad` files are **not** redistributed here (size +
-upstream licensing). The data layer is reproducible from two files:
-
-- [`data/catalog.csv`](data/catalog.csv) — machine-readable ledger of all 11
-  datasets (accession, DOI, URL, license, source, access class).
-- [`scripts/download.py`](scripts/download.py) — catalog-driven, resumable,
-  checksum-verified downloader.
+### 1. Environment
 
 ```bash
-python3 scripts/download.py --list          # catalog + access class
-python3 scripts/download.py --all           # fetch every auto-downloadable dataset
-python3 scripts/download.py mosta_mouse_embryo   # or one at a time
+conda env create -f environment.yml     # creates env `morphode` (Python 3.11)
+conda activate morphode
+# — or, with pip on an existing Python 3.11 —
+pip install -r requirements.txt
 ```
 
-Datasets download as plain `.h5ad`. See [`DATA.md`](DATA.md) for the full source
-table, licensing notes, and how the two controlled/portal-only datasets are
-obtained.
+The method itself is three functions in `src/open_interface.py`; the loaders and
+recipes wire the 11 public datasets into them:
 
-Minimal usage sketch:
+```
+src/open_interface.py    extract_open_interface → band_scores → de_and_null
+src/st3d_loader.py       generic serial-section → 3-D point-cloud assembler
+src/st3d_adapters.py     per-dataset load adapters (format/annotation quirks)
+scripts/reproduce.py     catalog + recipes driven end-to-end runner
+data/recipes.csv         126 interface–strata: domain, stratum, loader per dataset
+skill/interface-bulge-dent-de/kernel.py   scoring/decomposition helpers
+src/legacy_closed_mesh/  the superseded closed-hull driver (provenance)
+```
+
+### 2. Get the data
+
+Raw `.h5ad` files are **not** redistributed here (size + upstream licensing), but
+the data layer is reproducible from the catalog:
+
+```bash
+python3 scripts/download.py --list                 # catalog + access class
+python3 scripts/download.py acsta_arabidopsis       # one dataset (small, ~80 MB)
+python3 scripts/download.py --all                   # every auto-downloadable set
+```
+
+Datasets download as plain `.h5ad` under `data/<dataset_id>/`. Nine of the eleven
+are auto-downloadable (GEO / CNGB); two are portal/controlled and the downloader
+prints their accession + portal and stops. See [`DATA.md`](DATA.md) for the full
+source table and the two manual datasets.
+
+### 3. Run the method end to end
+
+```bash
+python3 scripts/reproduce.py --list                 # 126 interface–strata, 11 datasets
+python3 scripts/reproduce.py --smoke                 # fast E2E check (1 light dataset)
+python3 scripts/reproduce.py --dataset acsta_arabidopsis --check
+python3 scripts/reproduce.py --all --check           # every dataset; compare to headline
+```
+
+`reproduce.py` loads each dataset, and for every `(domain, stratum)` in
+`data/recipes.csv` extracts the open interface, scores bulge/dent, runs the
+within-cell-type DE + geometry-breaking null, and writes `results/<dataset>_bd.csv`.
+If your `.h5ad` live in a cache rather than `data/`, point the runner at it:
+
+```bash
+python3 scripts/reproduce.py --dataset zesta_zebrafish --data-root /path/to/cache
+```
+
+A captured run is in [`results/smoke_test.log`](results/smoke_test.log).
+
+### What "reproducible" means here — and its limits
+
+- **The published answers ship with the repo** and are the reference:
+  [`results/bd_final_headline.csv`](results/bd_final_headline.csv) (126 rows) and
+  `results/bd_final_full.json` (per-interface gene lists, log-folds, null p-values).
+  `data/recipes.csv` carries each row's published survivor count, so
+  `reproduce.py --check` prints the fresh count beside the headline.
+- **Exact reproduction of a headline number** is demonstrated by
+  [`demo/run_demo.py`](demo/run_demo.py) — a self-contained run on the zebrafish
+  Yolk Syncytial Layer that returns the published **12/12** in ~2 s.
+- **A fresh `reproduce.py` run approximates, not bit-reproduces, the full
+  headline.** The geometry is faithful — the interface band-cell counts match the
+  published `n_band` exactly (e.g. acsta 2106, zebrafish YSL 1184) — but the
+  per-gene survivor counts can differ. The original 126-strata run used per-dataset
+  preprocessing choices (which specimen/stage represents a `stratum='all'` row,
+  expression-normalization state, DE gene pre-selection) that were fixed
+  interactively and are only partly recoverable from the shipped recipes. The
+  correspondence is directional and robust; the exact integer per interface is not
+  guaranteed to re-derive without that per-dataset tuning. Treat the shipped
+  `bd_final_*` tables as the answer of record and `reproduce.py` as the runnable,
+  auditable path that regenerates the same analysis.
+
+**Inputs the method needs per dataset:** per-cell 3-D coordinates, a per-cell
+domain / non-domain label (the interface is extracted *from the points* — no
+pre-built mesh), per-cell cell-type annotations, per-cell section id, and an
+expression matrix (`reproduce.py` log-normalizes raw counts automatically).
+
+Minimal direct usage of the method:
 
 ```python
 from open_interface import extract_open_interface, band_scores, de_and_null
-# XYZ: (n,3) coords; is_domain: (n,) bool; ann/section/Xn per cell
+# XYZ: (n,3) coords; is_domain: (n,) bool; genes/section/Xn per cell
 V, F, genuine_frac = extract_open_interface(XYZ, is_domain)         # open sheet
 band, score, in_band = band_scores(XYZ, is_domain, V, F)            # bulge/dent
-de, null, meta = de_and_null(Xn[band], genes, score, XYZ[band], section[band])
-# de:   within-cell-type bulge-vs-dent log-fold per gene
-# null: geometry-breaking null p-value per top gene
-# meta: survivors, effect size, band cell counts
+res = de_and_null(Xn[band], genes, score, XYZ[band], section[band]) # DE + null
+# res: n_survive / n_tested, obs_lfc, pval, max_abs_lfc, top genes
 ```
 
 ---

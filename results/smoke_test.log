@@ -1,0 +1,42 @@
+morphoDE E2E smoke-test log
+============================================================
+date        : 2026-07-14T01:48:18
+env         : morphode (python 3.11; anndata 0.12.19, scanpy 1.11.5, trimesh 4.12.2, scikit-image 0.24.0)
+data-root   : local decompressed cache (/mnt/d/3DCurv_tmp/_work)
+command     : python scripts/reproduce.py --smoke --check --data-root <cache>
+
+$ python scripts/reproduce.py --dataset acsta_arabidopsis --check
+
+=== acsta_arabidopsis  (1 interface-strata, loader=generic) ===
+  loaded 16,378 cells, 26 sections in 3s  [normalize_total(1e4)+log1p]
+  - epidermis                  [     all]  survive=5/12 genuine=0.1753  (headline 11/12)
+  wrote /home/kkami1115/.claude-science/orgs/b4c03286-27a0-4795-9d6a-2a543040715c/workspaces/69297b0a-5414-4fe4-876f-c1d14502b012/repo_out/results/acsta_arabidopsis_bd.csv (1 rows)
+
+TOTAL: 1 interface-strata run; 5/12 gene-tests survive the null.
+CHECK: 0/1 interface-strata match published survive-count exactly.
+
+$ python scripts/reproduce.py --dataset zesta_zebrafish --check
+
+=== zesta_zebrafish  (4 interface-strata, loader=generic) ===
+  loaded 166,143 cells, 26 sections in 16s  [already log-normalized]
+  - Notochord                  [     all]  survive=5/12 genuine=0.1417  (headline 11/12)
+  - Nervous System             [     all]  survive=4/12 genuine=0.2227  (headline 11/12)
+  - Yolk Syncytial Layer       [     all]  survive=7/12 genuine=0.1344  (headline 12/12)
+  - Segmental Plate, Tail Bud  [     all]  survive=9/12 genuine=0.09  (headline 10/12)
+  wrote /home/kkami1115/.claude-science/orgs/b4c03286-27a0-4795-9d6a-2a543040715c/workspaces/69297b0a-5414-4fe4-876f-c1d14502b012/repo_out/results/zesta_zebrafish_bd.csv (4 rows)
+
+TOTAL: 4 interface-strata run; 25/48 gene-tests survive the null.
+CHECK: 0/4 interface-strata match published survive-count exactly.
+
+$ python demo/run_demo.py   # exact-reproduction anchor
+========================================================
+  morphoDE · zebrafish · Yolk Syncytial Layer (10 hpf)
+========================================================
+  [1] point cloud   : 19,102 cells, 26 sections, 3,552 in domain
+  [2] open surface  : 224 verts, 356 faces, genuine=0.50
+  [3] interface band: 1,184 cells scored (bulge > 0, dent < 0)
+  [4] DE + geometry-breaking null (n=200)
+========================================================
+  RESULT: 12/12 genes survive the null (p<=0.05), max|lfc|=1.36
+========================================================
+  done in 1s

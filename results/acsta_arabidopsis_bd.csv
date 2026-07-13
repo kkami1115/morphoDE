@@ -1,0 +1,2 @@
+dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
+acsta_arabidopsis,epidermis,all,16378,6317,2106,0.1753,5,12,0.4185,AT1G29930;AT1G06680;AT1G29920;AT3G08940;ATCG00220;AT5G54270,11,12

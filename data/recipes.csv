@@ -1,0 +1,127 @@
+dataset,loader,technology,z_spacing,domain,contrast,stratum,stratum_col,truth_survive,truth_tested,truth_n_band
+openst_lymphnode_3d,generic,openst,1.0,tumor,nontumor,all,,12,12,98822
+acsta_arabidopsis,generic,stereoseq,1.0,epidermis,rest,all,,11,12,2106
+zesta_zebrafish,generic,stereoseq,15.0,Notochord,rest,all,,11,12,1306
+zesta_zebrafish,generic,stereoseq,15.0,Nervous System,rest,all,,11,12,4690
+zesta_zebrafish,generic,stereoseq,15.0,Yolk Syncytial Layer,rest,all,,12,12,1184
+zesta_zebrafish,generic,stereoseq,15.0,"Segmental Plate, Tail Bud",rest,all,,10,12,1318
+flysta3d_v2_drosophila,adapter,stereoseq,1.0,CNS primordium,rest,all,,9,12,6495
+flysta3d_v2_drosophila,adapter,stereoseq,1.0,midgut primordium,rest,all,,5,12,3665
+flysta3d_v2_drosophila,adapter,stereoseq,1.0,epidermis,rest,all,,11,12,16393
+flysta3d_v2_drosophila,adapter,stereoseq,1.0,somatic muscle,rest,all,,6,12,3164
+mosta_mouse_embryo,adapter,stereoseq,1.0,Cavity,rest,all,,5,12,78176
+mosta_mouse_embryo,adapter,stereoseq,1.0,Connective tissue,rest,all,,1,12,88100
+mosta_mouse_embryo,adapter,stereoseq,1.0,Muscle,rest,all,,3,12,65242
+mosta_mouse_embryo,adapter,stereoseq,1.0,Brain,rest,all,,4,12,46951
+whole_mouse_embryo_3d_cngb,adapter,stereoseq,1.0,1-muscle,rest,all,,4,12,877
+whole_mouse_embryo_3d_cngb,adapter,stereoseq,1.0,2-craniofacial primordium,rest,all,,1,12,489
+whole_mouse_embryo_3d_cngb,adapter,stereoseq,1.0,3-endochondral bone,rest,all,,12,12,477
+whole_mouse_embryo_3d_cngb,adapter,stereoseq,1.0,4-primordium of chondrocranium,rest,all,,10,12,438
+flysta3d_drosophila,generic,stereoseq,1.0,midgut,rest,E14-16h,stage,7,12,662
+flysta3d_drosophila,generic,stereoseq,1.0,midgut,rest,E16-18h,stage,8,12,868
+flysta3d_drosophila,generic,stereoseq,1.0,midgut,rest,L1,stage,7,12,654
+flysta3d_drosophila,generic,stereoseq,1.0,midgut,rest,L2,stage,11,12,9671
+flysta3d_drosophila,generic,stereoseq,1.0,midgut,rest,L3,stage,10,12,4571
+flysta3d_drosophila,generic,stereoseq,1.0,epidermis,rest,E14-16h,stage,6,12,2093
+flysta3d_drosophila,generic,stereoseq,1.0,epidermis,rest,E16-18h,stage,11,12,1596
+flysta3d_drosophila,generic,stereoseq,1.0,epidermis,rest,L1,stage,6,12,1402
+flysta3d_drosophila,generic,stereoseq,1.0,epidermis,rest,L2,stage,3,12,2560
+flysta3d_drosophila,generic,stereoseq,1.0,epidermis,rest,L3,stage,10,12,1125
+flysta3d_drosophila,generic,stereoseq,1.0,carcass,rest,E14-16h,stage,11,12,227
+flysta3d_drosophila,generic,stereoseq,1.0,carcass,rest,E16-18h,stage,5,12,411
+flysta3d_drosophila,generic,stereoseq,1.0,carcass,rest,L1,stage,3,12,1060
+flysta3d_drosophila,generic,stereoseq,1.0,carcass,rest,L2,stage,10,12,2388
+flysta3d_drosophila,generic,stereoseq,1.0,carcass,rest,L3,stage,8,12,2167
+flysta3d_drosophila,generic,stereoseq,1.0,fat body,rest,L2,stage,5,12,2180
+flysta3d_drosophila,generic,stereoseq,1.0,fat body,rest,L3,stage,6,12,2210
+artista_axolotl_brain,generic,stereoseq,1.0,VLMC,rest,10DPI,stage,3,12,1585
+artista_axolotl_brain,generic,stereoseq,1.0,VLMC,rest,15DPI,stage,6,12,2092
+artista_axolotl_brain,generic,stereoseq,1.0,VLMC,rest,20DPI,stage,5,12,1297
+artista_axolotl_brain,generic,stereoseq,1.0,VLMC,rest,2DPI,stage,8,12,1272
+artista_axolotl_brain,generic,stereoseq,1.0,VLMC,rest,5DPI,stage,8,12,1038
+artista_axolotl_brain,generic,stereoseq,1.0,MSN,rest,10DPI,stage,12,12,1197
+artista_axolotl_brain,generic,stereoseq,1.0,MSN,rest,15DPI,stage,9,12,1502
+artista_axolotl_brain,generic,stereoseq,1.0,MSN,rest,20DPI,stage,10,12,1327
+artista_axolotl_brain,generic,stereoseq,1.0,MSN,rest,2DPI,stage,2,12,856
+artista_axolotl_brain,generic,stereoseq,1.0,MSN,rest,5DPI,stage,11,12,831
+artista_axolotl_brain,generic,stereoseq,1.0,CMPN,rest,10DPI,stage,11,12,756
+artista_axolotl_brain,generic,stereoseq,1.0,CMPN,rest,15DPI,stage,2,12,1580
+artista_axolotl_brain,generic,stereoseq,1.0,CMPN,rest,20DPI,stage,11,12,942
+artista_axolotl_brain,generic,stereoseq,1.0,CMPN,rest,2DPI,stage,8,12,789
+artista_axolotl_brain,generic,stereoseq,1.0,CMPN,rest,5DPI,stage,11,12,561
+artista_axolotl_brain,generic,stereoseq,1.0,mpEX,rest,10DPI,stage,12,12,721
+artista_axolotl_brain,generic,stereoseq,1.0,mpEX,rest,15DPI,stage,10,12,1077
+artista_axolotl_brain,generic,stereoseq,1.0,mpEX,rest,20DPI,stage,9,12,768
+artista_axolotl_brain,generic,stereoseq,1.0,mpEX,rest,2DPI,stage,9,12,754
+artista_axolotl_brain,generic,stereoseq,1.0,mpEX,rest,5DPI,stage,5,12,857
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,ExE endoderm,rest,E7p5rep1,stage,6,12,328
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,ExE endoderm,rest,E7p5rep2,stage,7,12,596
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,ExE endoderm,rest,E7p75rep1,stage,11,12,827
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,ExE endoderm,rest,E7p75rep2,stage,7,12,1528
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,ExE endoderm,rest,E8p0rep1,stage,2,12,452
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,ExE endoderm,rest,E8p0rep2,stage,10,12,1607
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Rostral neurectoderm,rest,E7p5rep1,stage,6,12,1103
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Rostral neurectoderm,rest,E7p75rep1,stage,4,12,1397
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Rostral neurectoderm,rest,E7p75rep2,stage,4,12,1291
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Rostral neurectoderm,rest,E8p0rep1,stage,7,12,383
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Rostral neurectoderm,rest,E8p0rep2,stage,6,12,783
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Paraxial mesoderm,rest,E7p75rep1,stage,5,12,521
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Paraxial mesoderm,rest,E7p75rep2,stage,2,12,430
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Paraxial mesoderm,rest,E8p0rep1,stage,6,12,743
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Paraxial mesoderm,rest,E8p0rep2,stage,0,12,1296
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Gut,rest,E7p5rep1,stage,7,12,223
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Gut,rest,E7p75rep1,stage,1,12,346
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Gut,rest,E7p75rep2,stage,8,12,610
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Gut,rest,E8p0rep1,stage,7,12,263
+digital_mouse_embryo_seu3d,generic,seqfish,1.0,Gut,rest,E8p0rep2,stage,9,12,921
+cerebellum_crossspecies_spatial,adapter,visium,1.0,molecular layer,rest,all,,12,12,1412160
+cerebellum_crossspecies_spatial,adapter,visium,1.0,granular layer,rest,all,,7,12,779871
+cerebellum_crossspecies_spatial,adapter,visium,1.0,purkinje layer,rest,all,,10,12,300369
+cerebellum_crossspecies_spatial,adapter,visium,1.0,white matter,rest,all,,12,12,301023
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,0hpa1,stage,11,12,6876
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,0hpa2,stage,11,12,12435
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,10dpa1,stage,3,12,2594
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,10dpa2,stage,10,12,994
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,12hpa1,stage,12,12,6920
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,12hpa2,stage,12,12,10125
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,14dpa1,stage,7,12,2085
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,14dpa2,stage,4,12,2838
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,36hpa1,stage,9,12,12348
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,36hpa2,stage,11,12,10572
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,3dpa1,stage,7,12,7024
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,3dpa2,stage,12,12,6510
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,5dpa1,stage,12,12,5765
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,5dpa2,stage,11,12,6735
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,7dpa1,stage,12,12,3625
+prista4d_planarian,generic,stereoseq,1.0,l3,rest,7dpa2,stage,7,12,6772
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,0hpa1,stage,10,12,97335
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,0hpa2,stage,11,12,124841
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,10dpa1,stage,11,12,28412
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,10dpa2,stage,12,12,17515
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,12hpa1,stage,10,12,78424
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,12hpa2,stage,5,12,63281
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,14dpa1,stage,11,12,18069
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,14dpa2,stage,9,12,35921
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,36hpa1,stage,6,12,87432
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,36hpa2,stage,5,12,74356
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,3dpa1,stage,7,12,49991
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,3dpa2,stage,7,12,55590
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,5dpa1,stage,11,12,42484
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,5dpa2,stage,6,12,87167
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,7dpa1,stage,7,12,29783
+prista4d_planarian,generic,stereoseq,1.0,l4,rest,7dpa2,stage,11,12,30227
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,0hpa1,stage,4,12,5542
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,0hpa2,stage,2,12,8131
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,10dpa1,stage,11,12,3857
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,12hpa1,stage,12,12,8804
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,12hpa2,stage,10,12,6560
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,14dpa1,stage,9,12,2061
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,14dpa2,stage,8,12,2481
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,36hpa1,stage,11,12,11057
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,36hpa2,stage,12,12,10603
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,3dpa1,stage,12,12,5516
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,3dpa2,stage,6,12,7632
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,5dpa1,stage,9,12,3957
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,5dpa2,stage,9,12,7703
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,7dpa1,stage,10,12,2762
+prista4d_planarian,generic,stereoseq,1.0,l5,rest,7dpa2,stage,10,12,1795
