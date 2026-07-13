@@ -249,12 +249,21 @@ A captured run is in [`results/smoke_test.log`](results/smoke_test.log).
   (e.g. acsta 2106, openst 98822, cerebellum molecular-layer 1 412 160, mosta
   per-domain `n_band` to the cell), confirming the coordinate assembly and mesh
   extraction re-derive the published interface.
-- **The six residuals** (mosta 1, zesta 1, flysta3d 4) differ by one or two genes
-  in a 12-gene test — the boundary cases of the permutation null, where a gene sits
-  at the p ≈ 0.05 edge and a different permutation draw flips it. They are not
-  loader or geometry errors; the surviving-gene *sets* and log-fold directions
-  agree. Treat the shipped `bd_final_*` tables as the answer of record and
-  `reproduce.py` as the runnable, auditable path that regenerates them.
+- **The six residuals** split into two kinds:
+  - **Four near-misses** differ by one or two genes in a 12-gene test — boundary
+    cases of the permutation null, where a gene sits at the p ≈ 0.05 edge and a
+    different permutation draw flips it: flysta3d midgut L1 (8 vs 7) and L3
+    (9 vs 10), mosta Muscle (1 vs 3), zesta Segmental Plate (8 vs 10). The
+    surviving-gene sets and log-fold directions agree.
+  - **Two larger divergences**, both in the flysta3d L3 stratum: epidermis
+    (5 vs 10) and fat body (12 vs 6). These are too large for null jitter and
+    point to a residual difference in how the flysta3d L3 sections are assembled
+    or preprocessed that the shipped recipe does not yet fully pin down — the one
+    place `reproduce.py` does not reproduce the published count.
+
+  Treat the shipped `bd_final_*` tables as the answer of record and `reproduce.py`
+  as the runnable, auditable path that regenerates them; `results/reproduction_check.csv`
+  lists the fresh vs published count for every interface so each residual is visible.
 - **Faithful loading is per-dataset.** Reproducing the numbers requires each
   dataset's published assembly (which specimen a `stratum='all'` row uses, whether
   serial sections are rigidly registered, how z is assigned, the normalization
