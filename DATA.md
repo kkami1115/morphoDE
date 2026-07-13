@@ -93,5 +93,8 @@ whatever those repositories currently serve. The per-dataset
 re-downloads verifiable and lets you detect a corrupted or upstream-changed file,
 but it is not shipped pre-populated (we do not host the data, so we cannot certify
 a canonical byte-for-byte hash for datasets served without upstream checksums).
-For GEO/Zenodo/Figshare files that carry an upstream md5, the download is checked
-against it immediately.
+Where the source repository exposes a per-file checksum in its API — **Zenodo and
+Figshare** — the download is additionally checked against that md5 immediately.
+GEO and CNGB do not expose per-file checksums this way, so those downloads are
+covered by the sha256 lockfile (self-consistency across your own re-runs) rather
+than an upstream hash.

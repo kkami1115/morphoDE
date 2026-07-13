@@ -121,6 +121,28 @@ def resolve_figshare(row):
              f.get("computed_md5") or f.get("supplied_md5") or "") for f in meta["files"]]
 
 
+def _walk_cngb_index(base, depth=0, max_depth=4):
+    """Recursively enumerate file URLs under a CNGB SciRAID index directory.
+    The FTP-over-HTTPS index is a plain autoindex: files (matching EXT) are
+    collected; subdirectories (href ending in '/') are descended, since some
+    collections nest their .h5ad under a subdir (e.g. STDS0000104/stomics/)."""
+    idx = curl_text(base)
+    if not idx or depth > max_depth:
+        return []
+    files, subdirs = [], []
+    for href in re.findall(r'href="([^"?]+)"', idx, re.I):
+        if href.startswith("/") or href.startswith("http") or href.startswith(".."):
+            continue  # site chrome / parent link, not a tree entry
+        full = base + href
+        if href.endswith("/"):
+            subdirs.append(full)
+        elif re.search(EXT + r"$", href, re.I):
+            files.append(full)
+    for sub in subdirs:
+        files.extend(_walk_cngb_index(sub, depth + 1, max_depth))
+    return sorted(set(files))
+
+
 def resolve_cngb(row):
     """CNGB / STOmicsDB. Prefer the server-rendered portal download page
     (db.cngb.org/stomics/<slug>/download/) which stays up when the FTP index
@@ -134,12 +156,9 @@ def resolve_cngb(row):
         page = curl_text("https://db.cngb.org/stomics/%s/download/" % slug)
         if page:
             urls = sorted(set(re.findall(file_re, page)))
-    if not urls:  # fall back to FTP tree enumeration
+    if not urls:  # fall back to a recursive walk of the SciRAID index tree
         base = "https://ftp.cngb.org/pub/SciRAID/stomics/%s/" % stds
-        idx = curl_text(base)
-        if idx:
-            urls = sorted(set(re.findall(r'href="([^"?]+%s)"' % EXT, idx, re.I)))
-            urls = [u if u.startswith("http") else base + u for u in urls]
+        urls = _walk_cngb_index(base)
     if not urls:
         sys.exit("CNGB enumeration failed for %s (slug=%s). Fetch manually from %s"
                  % (stds, slug, row["url"]))
@@ -147,7 +166,9 @@ def resolve_cngb(row):
     out = []
     for u in urls:
         rel = u.split(root, 1)[1] if root in u else u.rsplit("/", 1)[-1]
-        out.append((rel, u.replace("https://ftp.cngb.org", "ftp://ftp.cngb.org"), ""))
+        # keep the canonical https URL; curl_download tries ftp:// as a fallback
+        # (ftp.cngb.org's https and ftp fronts each flap independently by network)
+        out.append((rel, u if u.startswith("http") else "https:" + u.split(":", 1)[1], ""))
     return out
 
 
@@ -194,13 +215,40 @@ def write_lock(dst_dir, lock):
 
 # ---- fetch ----
 
-def curl_download(url, dest):
-    os.makedirs(os.path.dirname(dest), exist_ok=True)
+def _curl_once(url, dest):
     return subprocess.run(
         ["curl", "-sL", "--fail", "-C", "-", "--retry", "10", "--retry-delay", "5",
          "--retry-all-errors", "--connect-timeout", "30",
          "--speed-limit", "1000", "--speed-time", "120", "-o", dest, url]
     ).returncode == 0
+
+
+def curl_download(url, dest):
+    """Download `url` to `dest`. For CNGB (ftp.cngb.org) the https and native-ftp
+    fronts each flap independently depending on the network, so try both schemes:
+    whichever the caller gave first, then the other."""
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    candidates = [url]
+    if "ftp.cngb.org" in url:
+        if url.startswith("https://"):
+            candidates.append("ftp://" + url[len("https://"):])
+        elif url.startswith("ftp://"):
+            candidates.append("https://" + url[len("ftp://"):])
+    for u in candidates:
+        if _curl_once(u, dest) and not _is_html_stub(dest):
+            return True
+    return False
+
+
+def _is_html_stub(path):
+    """A flapping CNGB front sometimes returns a tiny HTML redirect page with a
+    2xx code instead of the file. Reject it so the other scheme is tried."""
+    try:
+        with open(path, "rb") as fh:
+            head = fh.read(512).lstrip().lower()
+        return head.startswith(b"<!doctype html") or head.startswith(b"<html")
+    except OSError:
+        return True
 
 
 def fetch_one(task, dst_dir, lock, verify_only):
@@ -256,12 +304,19 @@ def do_dataset(row, data_dir, workers, verify_only, dry_run, compress):
     os.makedirs(dst_dir, exist_ok=True)
     lock = load_lock(dst_dir)
     results = []
+    lock_lock = threading.Lock()
     with ThreadPoolExecutor(max_workers=workers) as ex:
         futs = {ex.submit(fetch_one, t, dst_dir, lock, verify_only): t[0] for t in tasks}
         for fu in as_completed(futs):
             rel, status = fu.result()
             results.append((rel, status))
             log("  [%s] %s" % (status, rel))
+            # Persist the lockfile incrementally as each file lands, so an
+            # interrupted run keeps its verified progress (datasets can be 100s
+            # of files) instead of re-downloading everything on the next run.
+            if not verify_only and status == "OK":
+                with lock_lock:
+                    write_lock(dst_dir, lock)
     if not verify_only:
         write_lock(dst_dir, lock)
         if compress:
