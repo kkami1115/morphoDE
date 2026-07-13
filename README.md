@@ -230,7 +230,10 @@ A captured run is in [`results/smoke_test.log`](results/smoke_test.log).
   `reproduce.py --check` prints the fresh count beside the headline.
 - **`reproduce.py` re-derives the headline survivor counts.** Running all eleven
   datasets end-to-end and comparing each interface-stratum's fresh survivor count
-  to the published number gives **125 / 126 exact matches**. Per dataset:
+  to the published number, **125 of the 126 counts reproduce exactly**. (This is a
+  reproducibility figure — how many per-interface counts the script regenerates —
+  and is unrelated to the *scientific* "125/126 interface–strata with ≥1 surviving
+  gene" above; the two numbers coincide by chance.) Per dataset:
 
   | dataset | exact / tested | | dataset | exact / tested |
   |---|---|---|---|---|
