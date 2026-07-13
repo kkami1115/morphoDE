@@ -75,14 +75,21 @@ def domain_mask(adata, domain):
     """
     import numpy as np
     ann = adata.obs["annotation"].astype(str).values
+    vocab = set(ann)
+    # 1) Exact label (case-insensitive) — the published runs used np.isin(ann,[domain])
+    #    whenever the domain name was itself a label. This is important where the
+    #    vocabulary has *compound* labels ("epidermis/CNS", "fat body/trachea",
+    #    "midgut/malpighian tubules"): those are distinct cell classes and must NOT
+    #    be folded into the base domain, or the interface geometry/DE shifts.
+    exact = {v for v in vocab if _norm(v) == _norm(domain)}
+    if exact:
+        return np.isin(ann, list(exact)), sorted(exact)
+    # 2) No exact label (e.g. acsta 'epidermis' -> 'Upper_epidermal_cell'): fall back
+    #    to a stemmed-substring match against the vocabulary.
     nd = _norm(domain)
     stem = nd[:6] if len(nd) >= 6 else nd
-    keep = set()
-    for v in set(ann):
-        nv = _norm(v)
-        if nd == nv or nd in nv or nv in nd or stem in nv:
-            keep.add(v)
-    if not keep:                              # fall back to exact label
+    keep = {v for v in vocab if nd in _norm(v) or _norm(v) in nd or stem in _norm(v)}
+    if not keep:
         keep = {domain}
     return np.isin(ann, list(keep)), sorted(keep)
 
@@ -349,10 +356,22 @@ def load_whole_mouse(data_root):
     return cn
 
 
+
 def ensure_lognorm(adata):
-    """de_and_null expects log-normalized expression. Datasets ship in mixed
-    states (some pre-normalized, some raw counts); normalize in place only when
-    X looks like raw integer counts, so a pre-normalized matrix is left alone."""
+    """de_and_null expects log-normalized expression. The datasets ship in mixed
+    states: some are stored already log-normalized (digital_mouse, flysta3d,
+    zesta, ...), others as raw integer counts (acsta, whole_mouse, cerebellum,
+    prista4d). Normalize (library-size 1e4 + log1p) ONLY when X looks like raw
+    counts, so an already-log matrix is left untouched.
+
+    Note on zesta: the published run passed zesta through run_open_stratified
+    with is_raw=True, which re-normalized an already-log matrix (a double
+    normalization). We deliberately do NOT reproduce that — zesta's stored X is
+    already log (max ~7, non-integer), so it is left as-is. This is the one place
+    reproduce.py is scientifically correct rather than bit-identical to the
+    headline: it changes only the zesta Segmental-Plate survivor count (8 vs the
+    published 10); the other three zesta interfaces are unaffected.
+    """
     import numpy as np, scipy.sparse as sp
     X = adata.X
     sample = (X[:2000].toarray() if sp.issparse(X) else np.asarray(X[:2000]))
@@ -366,7 +385,7 @@ def ensure_lognorm(adata):
 
 def run_interface(s, dataset_id, domain, stratum, n_perm=200):
     """One interface-stratum through the published method. Returns a result dict."""
-    import numpy as np
+    import numpy as np, scipy.sparse as sp
     from open_interface import extract_open_interface, band_scores, de_and_null
     strat = stratum_mask(s, dataset_id, stratum)
     if strat.sum() == 0:

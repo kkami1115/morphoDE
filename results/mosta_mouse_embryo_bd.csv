@@ -1,5 +1,5 @@
 dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
 mosta_mouse_embryo,Cavity,all,1414048,234528,78176,0.6063,5,12,0.3542,Rps5;Rps9;Rps2;Zc3h7a;Tmsb4x;Ftl1,5,12
 mosta_mouse_embryo,Connective tissue,all,1414048,264298,88100,0.7717,1,12,0.243,Gphn;Camk1d;Hbb-bt;Hbb-bs;Hba-a2;Hba-a1,1,12
-mosta_mouse_embryo,Muscle,all,1414048,221649,73883,0.8117,1,12,0.3584,Pde6a;Gm26917;Tmsb4x;Rps14;Rpl10;Lrba,3,12
+mosta_mouse_embryo,Muscle,all,1414048,195726,65242,0.8134,3,12,0.4434,Gnas;Ppia;Malat1;Rpl10;Ttn;Lrba,3,12
 mosta_mouse_embryo,Brain,all,1414048,140852,46951,0.7455,4,12,0.3879,Hbb-bt;Hba-a2;Hdac9;Hba-a1;Hbb-bs;Prkch,4,12

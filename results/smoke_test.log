@@ -1,6 +1,6 @@
 
 === acsta_arabidopsis  (1 interface-strata, loader=generic) ===
-  loaded [whole] 16,378 cells, 26 sections in 3s  [normalize_total(1e4)+log1p]
+  loaded [whole] 16,378 cells, 26 sections in 7s  [normalize_total(1e4)+log1p]
   - epidermis                  [     all]  survive=11/12 genuine=0.5544  (headline 11/12)
   wrote results/acsta_arabidopsis_bd.csv (1 rows)
 
@@ -15,13 +15,13 @@ FULL --all --check summary (all 11 datasets, 126 interface-strata)
   artista_axolotl_brain              20/20   exact
   cerebellum_crossspecies_spatial     4/4    exact
   digital_mouse_embryo_seu3d         20/20   exact
-  flysta3d_drosophila                13/17 
+  flysta3d_drosophila                17/17   exact
   flysta3d_v2_drosophila              4/4    exact
-  mosta_mouse_embryo                  3/4  
+  mosta_mouse_embryo                  4/4    exact
   openst_lymphnode_3d                 1/1    exact
   prista4d_planarian                 47/47   exact
   whole_mouse_embryo_3d_cngb          4/4    exact
-  zesta_zebrafish                     3/4  
+  zesta_zebrafish                     3/4     (zesta Segmental Plate: 8 vs 10, see README)
 
-  TOTAL: 120/126 interface-strata match the published survivor count exactly.
+  TOTAL: 125/126 interface-strata match the published survivor count exactly.
   Full per-interface comparison: results/reproduction_check.csv

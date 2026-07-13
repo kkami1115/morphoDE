@@ -230,16 +230,16 @@ A captured run is in [`results/smoke_test.log`](results/smoke_test.log).
   `reproduce.py --check` prints the fresh count beside the headline.
 - **`reproduce.py` re-derives the headline survivor counts.** Running all eleven
   datasets end-to-end and comparing each interface-stratum's fresh survivor count
-  to the published number gives **120 / 126 exact matches**. Per dataset:
+  to the published number gives **125 / 126 exact matches**. Per dataset:
 
   | dataset | exact / tested | | dataset | exact / tested |
   |---|---|---|---|---|
   | acsta_arabidopsis | **1 / 1** | | flysta3d_v2_drosophila | **4 / 4** |
   | openst_lymphnode_3d | **1 / 1** | | whole_mouse_embryo_3d_cngb | **4 / 4** |
   | digital_mouse_embryo_seu3d | **20 / 20** | | cerebellum_crossspecies_spatial | **4 / 4** |
-  | prista4d_planarian | **47 / 47** | | mosta_mouse_embryo | 3 / 4 |
-  | artista_axolotl_brain | **20 / 20** | | zesta_zebrafish | 3 / 4 |
-  | | | | flysta3d_drosophila | 13 / 17 |
+  | prista4d_planarian | **47 / 47** | | mosta_mouse_embryo | **4 / 4** |
+  | artista_axolotl_brain | **20 / 20** | | flysta3d_drosophila | **17 / 17** |
+  | | | | zesta_zebrafish | 3 / 4 |
 
   The full comparison is in
   [`results/reproduction_check.csv`](results/reproduction_check.csv) (fresh count,
@@ -249,21 +249,19 @@ A captured run is in [`results/smoke_test.log`](results/smoke_test.log).
   (e.g. acsta 2106, openst 98822, cerebellum molecular-layer 1 412 160, mosta
   per-domain `n_band` to the cell), confirming the coordinate assembly and mesh
   extraction re-derive the published interface.
-- **The six residuals** split into two kinds:
-  - **Four near-misses** differ by one or two genes in a 12-gene test — boundary
-    cases of the permutation null, where a gene sits at the p ≈ 0.05 edge and a
-    different permutation draw flips it: flysta3d midgut L1 (8 vs 7) and L3
-    (9 vs 10), mosta Muscle (1 vs 3), zesta Segmental Plate (8 vs 10). The
-    surviving-gene sets and log-fold directions agree.
-  - **Two larger divergences**, both in the flysta3d L3 stratum: epidermis
-    (5 vs 10) and fat body (12 vs 6). These are too large for null jitter and
-    point to a residual difference in how the flysta3d L3 sections are assembled
-    or preprocessed that the shipped recipe does not yet fully pin down — the one
-    place `reproduce.py` does not reproduce the published count.
-
-  Treat the shipped `bd_final_*` tables as the answer of record and `reproduce.py`
-  as the runnable, auditable path that regenerates them; `results/reproduction_check.csv`
-  lists the fresh vs published count for every interface so each residual is visible.
+- **The single non-match is a deliberate correction, not a discrepancy.** The
+  zesta Segmental-Plate interface gives 8/12 here vs the published 10/12. The
+  published run fed this interface through the DE step with `is_raw=True`, which
+  applies a library-size + log1p normalization — but the zesta matrix is *already*
+  log-normalized (max ≈ 7, non-integer values, raw counts kept in a separate
+  `counts` layer), so that step double-normalized it. `reproduce.py` normalizes
+  only matrices that are actually raw counts (acsta, whole_mouse, cerebellum,
+  prista4d), and leaves zesta's already-log matrix untouched. That is the
+  scientifically correct treatment and the only place the fresh count departs from
+  the headline; the other three zesta interfaces (Notochord 11/12, Nervous System
+  11/12, Yolk Syncytial Layer 12/12) are unaffected and match exactly. Treat the
+  shipped `bd_final_*` tables as the published answer of record; `reproduce.py`
+  reproduces them exactly everywhere except this one corrected value.
 - **Faithful loading is per-dataset.** Reproducing the numbers requires each
   dataset's published assembly (which specimen a `stratum='all'` row uses, whether
   serial sections are rigidly registered, how z is assigned, the normalization
