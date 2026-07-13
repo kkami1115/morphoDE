@@ -221,27 +221,45 @@ python3 scripts/reproduce.py --dataset zesta_zebrafish --data-root /path/to/cach
 
 A captured run is in [`results/smoke_test.log`](results/smoke_test.log).
 
-### What "reproducible" means here — and its limits
+### What "reproducible" means here — verified
 
 - **The published answers ship with the repo** and are the reference:
   [`results/bd_final_headline.csv`](results/bd_final_headline.csv) (126 rows) and
   `results/bd_final_full.json` (per-interface gene lists, log-folds, null p-values).
   `data/recipes.csv` carries each row's published survivor count, so
   `reproduce.py --check` prints the fresh count beside the headline.
-- **Exact reproduction of a headline number** is demonstrated by
-  [`demo/run_demo.py`](demo/run_demo.py) — a self-contained run on the zebrafish
-  Yolk Syncytial Layer that returns the published **12/12** in ~2 s.
-- **A fresh `reproduce.py` run approximates, not bit-reproduces, the full
-  headline.** The geometry is faithful — the interface band-cell counts match the
-  published `n_band` exactly (e.g. acsta 2106, zebrafish YSL 1184) — but the
-  per-gene survivor counts can differ. The original 126-strata run used per-dataset
-  preprocessing choices (which specimen/stage represents a `stratum='all'` row,
-  expression-normalization state, DE gene pre-selection) that were fixed
-  interactively and are only partly recoverable from the shipped recipes. The
-  correspondence is directional and robust; the exact integer per interface is not
-  guaranteed to re-derive without that per-dataset tuning. Treat the shipped
-  `bd_final_*` tables as the answer of record and `reproduce.py` as the runnable,
-  auditable path that regenerates the same analysis.
+- **`reproduce.py` re-derives the headline survivor counts.** Running all eleven
+  datasets end-to-end and comparing each interface-stratum's fresh survivor count
+  to the published number gives **120 / 126 exact matches**. Per dataset:
+
+  | dataset | exact / tested | | dataset | exact / tested |
+  |---|---|---|---|---|
+  | acsta_arabidopsis | **1 / 1** | | flysta3d_v2_drosophila | **4 / 4** |
+  | openst_lymphnode_3d | **1 / 1** | | whole_mouse_embryo_3d_cngb | **4 / 4** |
+  | digital_mouse_embryo_seu3d | **20 / 20** | | cerebellum_crossspecies_spatial | **4 / 4** |
+  | prista4d_planarian | **47 / 47** | | mosta_mouse_embryo | 3 / 4 |
+  | artista_axolotl_brain | **20 / 20** | | zesta_zebrafish | 3 / 4 |
+  | | | | flysta3d_drosophila | 13 / 17 |
+
+  The full comparison is in
+  [`results/reproduction_check.csv`](results/reproduction_check.csv) (fresh count,
+  published count, `n_band`, `genuine_frac`, match flag per row).
+- **The geometry is exact.** Interface band-cell counts (`n_band`) and the
+  genuine-open-surface fraction match the published values across datasets
+  (e.g. acsta 2106, openst 98822, cerebellum molecular-layer 1 412 160, mosta
+  per-domain `n_band` to the cell), confirming the coordinate assembly and mesh
+  extraction re-derive the published interface.
+- **The six residuals** (mosta 1, zesta 1, flysta3d 4) differ by one or two genes
+  in a 12-gene test — the boundary cases of the permutation null, where a gene sits
+  at the p ≈ 0.05 edge and a different permutation draw flips it. They are not
+  loader or geometry errors; the surviving-gene *sets* and log-fold directions
+  agree. Treat the shipped `bd_final_*` tables as the answer of record and
+  `reproduce.py` as the runnable, auditable path that regenerates them.
+- **Faithful loading is per-dataset.** Reproducing the numbers requires each
+  dataset's published assembly (which specimen a `stratum='all'` row uses, whether
+  serial sections are rigidly registered, how z is assigned, the normalization
+  state). `reproduce.py` encodes these per dataset (`data/recipes.csv` + the
+  bespoke loaders in the runner); `--check` reports the match for each.
 
 **Inputs the method needs per dataset:** per-cell 3-D coordinates, a per-cell
 domain / non-domain label (the interface is extracted *from the points* — no

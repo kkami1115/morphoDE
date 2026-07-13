@@ -1,0 +1,127 @@
+dataset,domain,stratum,n_band,genuine_frac,survive,tested,truth_survive,match
+acsta_arabidopsis,epidermis,all,2106,0.5544,11,12,11,yes
+artista_axolotl_brain,VLMC,10DPI,1585,0.1938,3,12,3,yes
+artista_axolotl_brain,VLMC,15DPI,2092,0.2722,6,12,6,yes
+artista_axolotl_brain,VLMC,20DPI,1297,0.1999,5,12,5,yes
+artista_axolotl_brain,VLMC,2DPI,1272,0.1945,8,12,8,yes
+artista_axolotl_brain,VLMC,5DPI,1038,0.1717,8,12,8,yes
+artista_axolotl_brain,MSN,10DPI,1197,0.5289,12,12,12,yes
+artista_axolotl_brain,MSN,15DPI,1502,0.5423,9,12,9,yes
+artista_axolotl_brain,MSN,20DPI,1327,0.4892,10,12,10,yes
+artista_axolotl_brain,MSN,2DPI,856,0.6308,2,12,2,yes
+artista_axolotl_brain,MSN,5DPI,831,0.5665,11,12,11,yes
+artista_axolotl_brain,CMPN,10DPI,756,0.3991,11,12,11,yes
+artista_axolotl_brain,CMPN,15DPI,1580,0.4773,2,12,2,yes
+artista_axolotl_brain,CMPN,20DPI,942,0.3828,11,12,11,yes
+artista_axolotl_brain,CMPN,2DPI,789,0.2937,8,12,8,yes
+artista_axolotl_brain,CMPN,5DPI,561,0.2723,11,12,11,yes
+artista_axolotl_brain,mpEX,10DPI,721,0.3751,12,12,12,yes
+artista_axolotl_brain,mpEX,15DPI,1077,0.4606,10,12,10,yes
+artista_axolotl_brain,mpEX,20DPI,768,0.3867,9,12,9,yes
+artista_axolotl_brain,mpEX,2DPI,754,0.2431,9,12,9,yes
+artista_axolotl_brain,mpEX,5DPI,857,0.2227,5,12,5,yes
+cerebellum_crossspecies_spatial,molecular layer,all,1412160,0.7114,12,12,12,yes
+cerebellum_crossspecies_spatial,granular layer,all,779871,0.7833,7,12,7,yes
+cerebellum_crossspecies_spatial,purkinje layer,all,300369,0.3559,10,12,10,yes
+cerebellum_crossspecies_spatial,white matter,all,301023,0.4241,12,12,12,yes
+digital_mouse_embryo_seu3d,ExE endoderm,E7p5rep1,328,0.6717,6,12,6,yes
+digital_mouse_embryo_seu3d,ExE endoderm,E7p5rep2,596,0.6201,7,12,7,yes
+digital_mouse_embryo_seu3d,ExE endoderm,E7p75rep1,827,0.8048,11,12,11,yes
+digital_mouse_embryo_seu3d,ExE endoderm,E7p75rep2,1528,0.6542,7,12,7,yes
+digital_mouse_embryo_seu3d,ExE endoderm,E8p0rep1,452,0.472,2,12,2,yes
+digital_mouse_embryo_seu3d,ExE endoderm,E8p0rep2,1607,0.4863,10,12,10,yes
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E7p5rep1,1103,0.7212,6,12,6,yes
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E7p75rep1,1397,0.9047,4,12,4,yes
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E7p75rep2,1291,0.896,4,12,4,yes
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E8p0rep1,383,0.9127,7,12,7,yes
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E8p0rep2,783,0.9455,6,12,6,yes
+digital_mouse_embryo_seu3d,Paraxial mesoderm,E7p75rep1,521,0.4689,5,12,5,yes
+digital_mouse_embryo_seu3d,Paraxial mesoderm,E7p75rep2,430,0.4838,2,12,2,yes
+digital_mouse_embryo_seu3d,Paraxial mesoderm,E8p0rep1,743,0.462,6,12,6,yes
+digital_mouse_embryo_seu3d,Paraxial mesoderm,E8p0rep2,1296,0.7262,0,12,0,yes
+digital_mouse_embryo_seu3d,Gut,E7p5rep1,223,0.7151,7,12,7,yes
+digital_mouse_embryo_seu3d,Gut,E7p75rep1,346,0.6314,1,12,1,yes
+digital_mouse_embryo_seu3d,Gut,E7p75rep2,610,0.4862,8,12,8,yes
+digital_mouse_embryo_seu3d,Gut,E8p0rep1,263,0.483,7,12,7,yes
+digital_mouse_embryo_seu3d,Gut,E8p0rep2,921,0.355,9,12,9,yes
+flysta3d_drosophila,midgut,E14-16h,662,1.0,7,12,7,yes
+flysta3d_drosophila,midgut,E16-18h,868,0.9731,8,12,8,yes
+flysta3d_drosophila,midgut,L1,955,0.8469,8,12,7,no
+flysta3d_drosophila,midgut,L2,9671,0.492,11,12,11,yes
+flysta3d_drosophila,midgut,L3,4786,0.7226,9,12,10,no
+flysta3d_drosophila,epidermis,E14-16h,2093,0.6064,6,12,6,yes
+flysta3d_drosophila,epidermis,E16-18h,1596,0.6818,11,12,11,yes
+flysta3d_drosophila,epidermis,L1,1402,0.5305,6,12,6,yes
+flysta3d_drosophila,epidermis,L2,2560,0.3153,3,12,3,yes
+flysta3d_drosophila,epidermis,L3,1318,0.5824,5,12,10,no
+flysta3d_drosophila,carcass,E14-16h,227,0.1516,11,12,11,yes
+flysta3d_drosophila,carcass,E16-18h,411,0.5328,5,12,5,yes
+flysta3d_drosophila,carcass,L1,1060,0.3446,3,12,3,yes
+flysta3d_drosophila,carcass,L2,2388,0.0738,10,12,10,yes
+flysta3d_drosophila,carcass,L3,2167,0.4264,8,12,8,yes
+flysta3d_drosophila,fat body,L2,2180,0.4133,5,12,5,yes
+flysta3d_drosophila,fat body,L3,2484,0.6906,12,12,6,no
+flysta3d_v2_drosophila,CNS primordium,all,6495,0.8556,9,12,9,yes
+flysta3d_v2_drosophila,midgut primordium,all,3665,0.4042,5,12,5,yes
+flysta3d_v2_drosophila,epidermis,all,16393,0.3227,11,12,11,yes
+flysta3d_v2_drosophila,somatic muscle,all,3164,0.9016,6,12,6,yes
+mosta_mouse_embryo,Cavity,all,78176,0.6063,5,12,5,yes
+mosta_mouse_embryo,Connective tissue,all,88100,0.7717,1,12,1,yes
+mosta_mouse_embryo,Muscle,all,73883,0.8117,1,12,3,no
+mosta_mouse_embryo,Brain,all,46951,0.7455,4,12,4,yes
+openst_lymphnode_3d,tumor,all,98822,0.5428,12,12,12,yes
+prista4d_planarian,l3,0hpa1,6876,0.5311,11,12,11,yes
+prista4d_planarian,l3,0hpa2,12435,0.4808,11,12,11,yes
+prista4d_planarian,l3,10dpa1,2594,0.3498,3,12,3,yes
+prista4d_planarian,l3,10dpa2,994,0.2598,10,12,10,yes
+prista4d_planarian,l3,12hpa1,6920,0.5072,12,12,12,yes
+prista4d_planarian,l3,12hpa2,10125,0.5166,12,12,12,yes
+prista4d_planarian,l3,14dpa1,2085,0.3367,7,12,7,yes
+prista4d_planarian,l3,14dpa2,2838,0.2702,4,12,4,yes
+prista4d_planarian,l3,36hpa1,12348,0.2505,9,12,9,yes
+prista4d_planarian,l3,36hpa2,10572,0.3614,11,12,11,yes
+prista4d_planarian,l3,3dpa1,7024,0.4545,7,12,7,yes
+prista4d_planarian,l3,3dpa2,6510,0.3448,12,12,12,yes
+prista4d_planarian,l3,5dpa1,5765,0.3065,12,12,12,yes
+prista4d_planarian,l3,5dpa2,6735,0.3195,11,12,11,yes
+prista4d_planarian,l3,7dpa1,3625,0.2134,12,12,12,yes
+prista4d_planarian,l3,7dpa2,6772,0.2307,7,12,7,yes
+prista4d_planarian,l4,0hpa1,97335,0.4479,10,12,10,yes
+prista4d_planarian,l4,0hpa2,124841,0.4334,11,12,11,yes
+prista4d_planarian,l4,10dpa1,28412,0.2685,11,12,11,yes
+prista4d_planarian,l4,10dpa2,17515,0.2611,12,12,12,yes
+prista4d_planarian,l4,12hpa1,78424,0.5136,10,12,10,yes
+prista4d_planarian,l4,12hpa2,63281,0.5205,5,12,5,yes
+prista4d_planarian,l4,14dpa1,18069,0.2478,11,12,11,yes
+prista4d_planarian,l4,14dpa2,35921,0.2947,9,12,9,yes
+prista4d_planarian,l4,36hpa1,87432,0.2492,6,12,6,yes
+prista4d_planarian,l4,36hpa2,74356,0.4075,5,12,5,yes
+prista4d_planarian,l4,3dpa1,49991,0.529,7,12,7,yes
+prista4d_planarian,l4,3dpa2,55590,0.4042,7,12,7,yes
+prista4d_planarian,l4,5dpa1,42484,0.4023,11,12,11,yes
+prista4d_planarian,l4,5dpa2,87167,0.3386,6,12,6,yes
+prista4d_planarian,l4,7dpa1,29783,0.2311,7,12,7,yes
+prista4d_planarian,l4,7dpa2,30227,0.2173,11,12,11,yes
+prista4d_planarian,l5,0hpa1,5542,0.3767,4,12,4,yes
+prista4d_planarian,l5,0hpa2,8131,0.3778,2,12,2,yes
+prista4d_planarian,l5,10dpa1,3857,0.2254,11,12,11,yes
+prista4d_planarian,l5,12hpa1,8804,0.5207,12,12,12,yes
+prista4d_planarian,l5,12hpa2,6560,0.5724,10,12,10,yes
+prista4d_planarian,l5,14dpa1,2061,0.3001,9,12,9,yes
+prista4d_planarian,l5,14dpa2,2481,0.2766,8,12,8,yes
+prista4d_planarian,l5,36hpa1,11057,0.2201,11,12,11,yes
+prista4d_planarian,l5,36hpa2,10603,0.375,12,12,12,yes
+prista4d_planarian,l5,3dpa1,5516,0.4328,12,12,12,yes
+prista4d_planarian,l5,3dpa2,7632,0.4416,6,12,6,yes
+prista4d_planarian,l5,5dpa1,3957,0.3436,9,12,9,yes
+prista4d_planarian,l5,5dpa2,7703,0.3342,9,12,9,yes
+prista4d_planarian,l5,7dpa1,2762,0.2418,10,12,10,yes
+prista4d_planarian,l5,7dpa2,1795,0.154,10,12,10,yes
+whole_mouse_embryo_3d_cngb,1-muscle,all,877,0.4499,4,12,4,yes
+whole_mouse_embryo_3d_cngb,2-craniofacial primordium,all,489,0.1897,1,12,1,yes
+whole_mouse_embryo_3d_cngb,3-endochondral bone,all,477,0.4231,12,12,12,yes
+whole_mouse_embryo_3d_cngb,4-primordium of chondrocranium,all,438,0.3944,10,12,10,yes
+zesta_zebrafish,Notochord,all,1306,0.5317,11,12,11,yes
+zesta_zebrafish,Nervous System,all,4690,0.673,11,12,11,yes
+zesta_zebrafish,Yolk Syncytial Layer,all,1184,0.5237,12,12,12,yes
+zesta_zebrafish,"Segmental Plate, Tail Bud",all,1318,0.4783,8,12,10,no

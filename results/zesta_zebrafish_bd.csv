@@ -1,0 +1,5 @@
+dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
+zesta_zebrafish,Notochord,all,30848,3917,1306,0.5317,11,12,0.5015,fstl1b;cd81a;fzd7a;hapln1a;zmp:0000000760;col9a1b,11,12
+zesta_zebrafish,Nervous System,all,72175,14070,4690,0.673,11,12,0.4965,ebf2;dlb;acta1b;FP015809.1;actc1b;tubb5,11,12
+zesta_zebrafish,Yolk Syncytial Layer,all,19102,3552,1184,0.5237,12,12,1.103,snu13b;h3f3b.1;hmga1a;serbp1a;si:ch211-222l21.1;galnt7,12,12
+zesta_zebrafish,"Segmental Plate, Tail Bud",all,19102,3953,1318,0.4783,8,12,0.571,rpl38;npm1a;rpl23a;rps15a;rpl37;rpl18,10,12

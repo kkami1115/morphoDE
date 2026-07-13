@@ -1,0 +1,5 @@
+dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
+flysta3d_v2_drosophila,CNS primordium,all,188005,19484,6495,0.8556,9,12,0.4962,Cpr72Ec;Crys;cpx;euc;VGlut;CG13071,9,12
+flysta3d_v2_drosophila,midgut primordium,all,188005,10995,3665,0.4042,5,12,0.7084,mt:CoII;CG42397;Drsl3;Drsl2;CG43218;CG18180,5,12
+flysta3d_v2_drosophila,epidermis,all,188005,49179,16393,0.3227,11,12,1.469,Msr-110;CG13376;Clect27;Cpr49Ah;CG13403;Cpr49Ae,11,12
+flysta3d_v2_drosophila,somatic muscle,all,188005,9492,3164,0.9016,6,12,0.4267,Acp65Aa;TwdlT;Cpr49Aa;alphaTub84B;Cpr62Bc;CG7214,6,12

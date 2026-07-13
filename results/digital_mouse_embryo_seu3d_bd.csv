@@ -1,0 +1,21 @@
+dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
+digital_mouse_embryo_seu3d,ExE endoderm,E7p5rep1,13168,983,328,0.6717,6,12,0.5035,A2m;Hba-a1;Spink1;Dbi;S100a6;Prl8a2,6,12
+digital_mouse_embryo_seu3d,ExE endoderm,E7p5rep2,8190,1788,596,0.6201,7,12,0.3366,Psap;Hbb-bs;Cmss1;AY036118;Gm26917;Filip1l,7,12
+digital_mouse_embryo_seu3d,ExE endoderm,E7p75rep1,20935,2480,827,0.8048,11,12,0.5492,Ttr;Gm42418;Apoa1;Cdk8;Rbp4;Apoc2,11,12
+digital_mouse_embryo_seu3d,ExE endoderm,E7p75rep2,23736,4584,1528,0.6542,7,12,0.3769,A2m;Rps28;S100a6;AY036118;Hbb-bs;Spink1,7,12
+digital_mouse_embryo_seu3d,ExE endoderm,E8p0rep1,11048,1355,452,0.472,2,12,0.3405,Spink1;Rbp4;Lars2;Gm26561;Apoa1;Apoe,2,12
+digital_mouse_embryo_seu3d,ExE endoderm,E8p0rep2,27266,4821,1607,0.4863,10,12,0.4571,Rpl9;Apoe;Sem1;Emb;Car4;Spink1,10,12
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E7p5rep1,13168,3309,1103,0.7212,6,12,0.3615,mt-Nd2;mt-Nd1;Actb;Slc2a3;Rplp1;Ctla2a,6,12
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E7p75rep1,20935,4189,1397,0.9047,4,12,0.222,Gm26561;Cmss1;Gm19951;AY036118;Cdk8;Gm42418,4,12
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E7p75rep2,23736,3873,1291,0.896,4,12,0.3946,Slc2a3;Rps11;S100a6;Mt1;Id3;Ctla2a,4,12
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E8p0rep1,11048,1148,383,0.9127,7,12,0.3979,Mif;Eif4a1;Mest;Pkm;Rps8;Gapdh,7,12
+digital_mouse_embryo_seu3d,Rostral neurectoderm,E8p0rep2,27266,2347,783,0.9455,6,12,0.2164,Il31ra;Sub1;Gm26917;Cd44;Lars2;Gm26561,6,12
+digital_mouse_embryo_seu3d,Paraxial mesoderm,E7p75rep1,20935,1561,521,0.4689,5,12,0.7467,Gm26561;Gphn;Cdk8;Lars2;Gm42418;AY036118,5,12
+digital_mouse_embryo_seu3d,Paraxial mesoderm,E7p75rep2,23736,1288,430,0.4838,2,12,0.8563,Rps14;Rpl35a;Rpl11;Id3;Gpx3;Rplp0,2,12
+digital_mouse_embryo_seu3d,Paraxial mesoderm,E8p0rep1,11048,2227,743,0.462,6,12,0.2798,Rplp1;Fth1;Camk1d;Mt1;Prl8a2;S100a6,6,12
+digital_mouse_embryo_seu3d,Paraxial mesoderm,E8p0rep2,27266,3887,1296,0.7262,0,12,0.4809,Rpl30;Gapdh;Hsp90b1;Gpx3;A2m;Ctla2a,0,12
+digital_mouse_embryo_seu3d,Gut,E7p5rep1,13168,668,223,0.7151,7,12,0.8596,Slc2a1;Id3;Krt18;Rpl22l1;Rpl3;Eef1a1,7,12
+digital_mouse_embryo_seu3d,Gut,E7p75rep1,20935,1038,346,0.6314,1,12,0.6087,Gm15564;Hbb-bs;AY036118;Cdk8;Spink1;Gm42418,1,12
+digital_mouse_embryo_seu3d,Gut,E7p75rep2,23736,1828,610,0.4862,8,12,0.2041,Gapdh;Spink1;Atp5g3;Snrpe;Apela;Emb,8,12
+digital_mouse_embryo_seu3d,Gut,E8p0rep1,11048,788,263,0.483,7,12,0.3968,Rps21;Dbi;Gm26561;Gng11;Prl8a2;Erv3,7,12
+digital_mouse_embryo_seu3d,Gut,E8p0rep2,27266,2761,921,0.355,9,12,0.2483,Cdk8;Car4;Filip1l;Spink1;Slc2a3;Cmss1,9,12

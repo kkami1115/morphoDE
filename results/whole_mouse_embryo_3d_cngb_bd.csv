@@ -1,0 +1,5 @@
+dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
+whole_mouse_embryo_3d_cngb,1-muscle,all,16418,2629,877,0.4499,4,12,0.6441,Tnnt1;Nnat;Cxcl12;Col11a1;Gdf10;Col2a1,4,12
+whole_mouse_embryo_3d_cngb,2-craniofacial primordium,all,16418,1466,489,0.1897,1,12,0.3111,Dek;Barx1;Mab21l2;Igf1;Postn;Msx1,1,12
+whole_mouse_embryo_3d_cngb,3-endochondral bone,all,16418,1431,477,0.4231,12,12,1.0903,Igfbp2;Cdh11;Twist1;Twist2;Fabp5;Crabp1,12,12
+whole_mouse_embryo_3d_cngb,4-primordium of chondrocranium,all,16418,1313,438,0.3944,10,12,0.4424,Hba-a1;Hbb-y;Alcam;Hbb-bs;Hba-x;Malat1,10,12

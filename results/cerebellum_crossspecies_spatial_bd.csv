@@ -1,0 +1,5 @@
+dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
+cerebellum_crossspecies_spatial,molecular layer,all,8380265,4236478,1412160,0.7114,12,12,0.1401,ATP6;ND2;PLP1;ND1;MBP;ND3,12,12
+cerebellum_crossspecies_spatial,granular layer,all,8380265,2339613,779871,0.7833,7,12,0.1213,ENTPD4;PCDH9;GRID2;PDE10A;GALNT12;LRP1B,7,12
+cerebellum_crossspecies_spatial,purkinje layer,all,8380265,901107,300369,0.3559,10,12,0.2779,MAGI2;CADM2;KCND2;KCNIP4;RBFOX1;GRID2,10,12
+cerebellum_crossspecies_spatial,white matter,all,8380265,903067,301023,0.4241,12,12,0.464,ND4;COX2;CST3;SNAP25;GFAP;S100B,12,12

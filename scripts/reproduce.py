@@ -109,17 +109,244 @@ def load_dataset(dataset_id, loader, data_root, technology, z_spacing):
     import st3d_loader as L
     workdir = os.path.join(os.environ.get("MORPHODE_WORK",
                            os.path.join(data_root, "_work")), dataset_id)
+    if dataset_id == "openst_lymphnode_3d":
+        return load_openst(data_root)
+    if dataset_id == "artista_axolotl_brain":
+        return load_artista(data_root)
+    if dataset_id == "flysta3d_v2_drosophila":
+        return load_flysta3d_v2(data_root)
+    if dataset_id == "mosta_mouse_embryo":
+        return load_mosta(data_root)
+    if dataset_id == "whole_mouse_embryo_3d_cngb":
+        return load_whole_mouse(data_root)
     if loader == "adapter":
         import st3d_adapters as A
-        parts = A.get(dataset_id)(os.path.join(data_root, dataset_id))
+        # The registered adapter takes the data ROOT (it appends dataset_id/... itself)
+        # and returns a list of per-section AnnData parts; the generic loader then
+        # stacks them. This mirrors the published headline call
+        #   parts = REGISTRY[dataset_id](root=data_root); load(dataset_id, parts=parts)
+        parts = A.REGISTRY[dataset_id](root=data_root)
         parts = parts if isinstance(parts, list) else [parts]
         s = L.load(dataset_id, data_root=data_root, workdir=workdir,
-                   technology=technology, z_spacing=z_spacing,
-                   auto_register=False, parts=parts)
+                   technology=technology, z_spacing=z_spacing, parts=parts)
     else:
+        # auto_register=True (loader default) rigidly aligns serial sections before
+        # the interface mesh is built — this is what the published headline used.
+        # Disabling it leaves sections un-aligned, which distorts the 3-D coordinates
+        # and the extracted interface geometry (verts/genuine_frac), breaking the
+        # numeric match. Keep it ON for the generic multi-section loaders.
         s = L.load(dataset_id, data_root=data_root, workdir=workdir,
-                   technology=technology, z_spacing=z_spacing, auto_register=False)
+                   technology=technology, z_spacing=z_spacing, auto_register=True)
     return s
+
+
+def load_single_file(dataset_id, data_root, fname):
+    """Assemble a 3-D sample from ONE source file (per-embryo / per-specimen).
+
+    Some datasets analyse each interface within a single representative specimen
+    rather than the whole stacked object (e.g. zebrafish: each domain uses one
+    embryo/timepoint). The recipe row names that file in `source_file`; we glob
+    for it under the dataset dir (raw .h5ad or .h5ad.zst) and assemble it, rigidly
+    registering sections when the file holds more than one.
+    """
+    import glob, st3d_loader as L
+    ddir = os.path.join(data_root, dataset_id)
+    # Prefer a plain .h5ad (canonical download / decompressed cache); fall back to
+    # a .zst original, which st3d_loader transparently decompresses.
+    hits = glob.glob(os.path.join(ddir, "**", fname), recursive=True)
+    if not hits:
+        work = os.path.join(os.environ.get("MORPHODE_WORK",
+                            os.path.join(data_root, "_work")), dataset_id)
+        hits = glob.glob(os.path.join(work, "**", fname), recursive=True)
+    if not hits:
+        hits = glob.glob(os.path.join(ddir, "**", fname + ".zst"), recursive=True)
+    if not hits:
+        raise FileNotFoundError(f"{fname} not found under {ddir}")
+    a = L.assemble_3d([hits[0]], dataset_id)
+    if a.obs["section_id"].nunique() > 1:
+        a = L.register_sections_rigid(a)
+    return a
+
+
+#  The 24 axolotl-brain serial sections, in the published stacking order. Each
+#  is one .h5ad under artista_axolotl_brain/(stomics/); the whole-dir glob would
+#  also pick up pre-merged "10DPIs.h5ad" files and double-count, so we name the
+#  per-section files explicitly and stack them with z = section index (no rigid
+#  registration — the published run used raw section order).
+ARTISTA_SECTIONS = ["2DPI_1", "2DPI_2", "2DPI_3", "5DPI_1", "5DPI_2", "5DPI_3",
+                    "10DPI_1", "10DPI_2", "10DPI_3", "15DPI_1", "15DPI_2", "15DPI_3",
+                    "15DPI_4", "20DPI_1", "20DPI_2", "20DPI_3", "30DPI", "60DPI",
+                    "Control_Juv", "Adult", "Meta", "Stage44", "Stage54", "Stage57"]
+
+
+def load_artista(data_root):
+    """Bespoke assembly for artista_axolotl_brain matching the published run.
+
+    Reads the 24 named serial sections, takes 2-D `spatial` + the `Annotation`
+    obs column from each, and stacks them with z = running section index. The
+    `_srcfile` column carries the section name so the recipe's DPI stratum
+    (2DPI..20DPI) selects the right sections via STRATUM_KEY.
+    """
+    import glob, numpy as np, scipy.sparse as sp, anndata as ad, st3d_loader as L
+    ddir = os.path.join(data_root, "artista_axolotl_brain")
+    work = os.path.join(os.environ.get("MORPHODE_WORK",
+                        os.path.join(data_root, "_work")), "artista_axolotl_brain")
+    probe = os.path.join(os.environ.get("MORPHODE_WORK",
+                         os.path.join(data_root, "_work")), "artista_probe")
+    parts, gs = [], 0
+    for name in ARTISTA_SECTIONS:
+        # exact filename only (avoid the pre-merged "<DPI>s.h5ad" aggregates)
+        cand = []
+        for base in (ddir, work, probe):
+            cand += glob.glob(os.path.join(base, "**", name + ".h5ad"), recursive=True)
+        if not cand:
+            for base in (ddir,):
+                cand += glob.glob(os.path.join(base, "**", name + ".h5ad.zst"), recursive=True)
+        cand = [c for c in cand if os.path.basename(c).split(".")[0] == name]
+        if not cand:
+            continue
+        fp = cand[0]
+        if fp.endswith(".zst"):
+            import zstandard, io
+            with open(fp, "rb") as fh:
+                a = ad.read_h5ad(io.BytesIO(zstandard.ZstdDecompressor().decompress(fh.read())))
+        else:
+            a = ad.read_h5ad(fp)
+        X = (a.X.tocsr() if sp.issparse(a.X) else sp.csr_matrix(a.X)).astype(np.float32)
+        annot = a.obs["Annotation"].astype(str).values if "Annotation" in a.obs \
+                else a.obs["annotation"].astype(str).values
+        b = ad.AnnData(X=X, obs=dict(annotation=annot,
+                       section_id=np.array([name] * a.n_obs),
+                       _srcfile=np.array([name] * a.n_obs),
+                       _secidx=np.full(a.n_obs, gs, int)), var=a.var[[]].copy())
+        b.var_names = a.var_names
+        b.obsm["spatial2d"] = np.asarray(a.obsm["spatial"], float)[:, :2]
+        parts.append(b); gs += 1
+    if not parts:
+        raise FileNotFoundError(f"no artista sections found under {ddir}")
+    ax = ad.concat(parts, join="outer", label="_concat_key",
+                   keys=[p.obs["section_id"][0] for p in parts], index_unique="-")
+    if sp.issparse(ax.X):
+        ax.X.data = np.nan_to_num(ax.X.data, nan=0.0)
+    ax.obsm["spatial_3d"] = np.column_stack(
+        [ax.obsm["spatial2d"], ax.obs["_secidx"].values.astype(float)]).astype(float)
+    ax.X = ax.X.tocsr()
+    return ax
+
+
+#  flysta3d_v2: the published run analysed ONE pupal embryo (PUPA-72h_cellbin),
+#  manually library-size normalised it, and mapped the fine cell-type annotation
+#  onto four coarse tissue domains with composite rules. Reproduced verbatim.
+FLYV2_EMBRYO = "PUPA-72h_cellbin_final_modified.h5ad"
+
+def _flyv2_domain(lab):
+    l = str(lab).lower()
+    if ("brain" in l) or ("nerve cord" in l) or (l == "glia"):            return "CNS primordium"
+    if ("midgut" in l) or ("gastric caecum" in l) or ("proventriculus" in l): return "midgut primordium"
+    if "epidermis" in l:                                                   return "epidermis"
+    if l == "somatic muscle":                                             return "somatic muscle"
+    return "rest"
+
+
+def load_flysta3d_v2(data_root):
+    """Single-embryo bespoke assembly + manual lib-size norm + coarse domains."""
+    import glob, io, numpy as np, scipy.sparse as sp, anndata as ad, st3d_loader as L
+    ddir = os.path.join(data_root, "flysta3d_v2_drosophila")
+    work = os.path.join(os.environ.get("MORPHODE_WORK",
+                        os.path.join(data_root, "_work")), "flysta3d_v2_drosophila")
+    cand = []
+    for base in (ddir, work):
+        cand += glob.glob(os.path.join(base, "**", FLYV2_EMBRYO), recursive=True)
+    if not cand:
+        cand += glob.glob(os.path.join(ddir, "**", FLYV2_EMBRYO + ".zst"), recursive=True)
+    if not cand:
+        raise FileNotFoundError(f"{FLYV2_EMBRYO} not found under {ddir}")
+    fp = cand[0]
+    fv = L.assemble_3d([fp], "flysta3d_v2_drosophila")
+    fv.uns["registration"] = "none"
+    # manual library-size normalization + log1p (headline cell303)
+    X = fv.X.tocsr().astype(np.float32)
+    lib = np.asarray(X.sum(1)).ravel(); lib[lib == 0] = 1.0
+    X = sp.diags((1e4 / lib).astype(np.float32)) @ X
+    X.data = np.log1p(X.data); fv.X = X.tocsr()
+    fv.uns["_morphode_normalized"] = "manual lib-size 1e4 + log1p"
+    fine = fv.obs["annotation"].astype(str).values
+    import pandas as pd
+    fv.obs["annotation"] = pd.Categorical([_flyv2_domain(l) for l in fine])
+    return fv
+
+
+def load_openst(data_root):
+    """openST lymph node: one file that already carries an ALIGNED 3-D embedding
+    in obsm['spatial_3d_aligned']. Use it directly as spatial_3d (the published
+    run did); the generic loader would instead rebuild z from section order.
+    """
+    import glob, io, numpy as np, scipy.sparse as sp, anndata as ad
+    fname = "GSE251926_metastatic_lymph_node_3d.h5ad"
+    ddir = os.path.join(data_root, "openst_lymphnode_3d")
+    work = os.path.join(os.environ.get("MORPHODE_WORK",
+                        os.path.join(data_root, "_work")), "openst_lymphnode_3d")
+    cand = []
+    for base in (ddir, work):
+        cand += glob.glob(os.path.join(base, "**", fname), recursive=True)
+    if not cand:
+        cand += glob.glob(os.path.join(ddir, "**", fname + ".zst"), recursive=True)
+    if not cand:
+        raise FileNotFoundError(f"{fname} not found under {ddir}")
+    fp = cand[0]
+    if fp.endswith(".zst"):
+        import zstandard
+        with open(fp, "rb") as fh:
+            ao = ad.read_h5ad(io.BytesIO(zstandard.ZstdDecompressor().decompress(fh.read())))
+    else:
+        ao = ad.read_h5ad(fp)
+    ao.obsm["spatial_3d"] = np.asarray(ao.obsm["spatial_3d_aligned"], float)
+    if "section_id" not in ao.obs:
+        ao.obs["section_id"] = np.array(["s0"] * ao.n_obs)
+    ao.X = ao.X.tocsr() if sp.issparse(ao.X) else sp.csr_matrix(ao.X)
+    return ao
+
+
+def load_mosta(data_root):
+    """MOSTA E16.5_E2 serial sections stacked with z = section number, NO rigid
+    registration (the published run concatenated the raw sections and used the
+    section index as z). The registered generic path distorts the coordinates and
+    breaks the geometry, so we assemble directly here.
+    """
+    import re, numpy as np, scipy.sparse as sp, anndata as ad
+    import st3d_adapters as A
+    parts = A.REGISTRY["mosta_mouse_embryo"](root=data_root)
+    xyz = []
+    for i, p in enumerate(parts):
+        xy = np.asarray(p.obsm["spatial"], float)[:, :2]
+        sec = str(p.obs["section"].iloc[0]) if "section" in p.obs else str(i)
+        m = re.search(r"S(\d+)", sec)
+        z = float(m.group(1)) if m else float(i)
+        p.obs["section_id"] = np.array([f"S{int(z):02d}"] * p.n_obs)
+        xyz.append(np.column_stack([xy, np.full(p.n_obs, z)]))
+    mo = ad.concat(parts, join="outer", label="_srcfile", index_unique="-")
+    mo.obsm["spatial_3d"] = np.vstack(xyz).astype(float)
+    mo.X = mo.X.tocsr() if sp.issparse(mo.X) else sp.csr_matrix(mo.X)
+    return mo
+
+
+def load_whole_mouse(data_root):
+    """CNGB whole-mouse-embryo: the generic loader stacks + registers the parts,
+    then the published run OVERWRITES z with (section_number - 1) so the sections
+    sit at integer depths. Reproduced here.
+    """
+    import re, numpy as np, scipy.sparse as sp, st3d_loader as L
+    import st3d_adapters as A
+    parts = A.REGISTRY["whole_mouse_embryo_3d_cngb"](root=data_root)
+    cn = L.load("whole_mouse_embryo_3d_cngb", data_root=data_root, parts=parts)
+    sid = cn.obs["section_id"].astype(str).values
+    num = np.array([int(re.sub(r"\D", "", s) or 0) for s in sid])
+    newz = (num - 1).astype(float)
+    cn.obs["z"] = newz
+    xyz = np.asarray(cn.obsm["spatial_3d"], float); xyz[:, 2] = newz
+    cn.obsm["spatial_3d"] = xyz
+    cn.X = cn.X.tocsr() if sp.issparse(cn.X) else sp.csr_matrix(cn.X)
+    return cn
 
 
 def ensure_lognorm(adata):
@@ -144,7 +371,9 @@ def run_interface(s, dataset_id, domain, stratum, n_perm=200):
     strat = stratum_mask(s, dataset_id, stratum)
     if strat.sum() == 0:
         return {"skip": f"stratum '{stratum}' matched 0 cells"}
-    sub = s[strat]
+    # Avoid a full copy for whole-object strata (matters at millions of cells):
+    # slice only when the stratum is a real subset.
+    sub = s if bool(strat.all()) else s[strat]
     XYZ = np.asarray(sub.obsm["spatial_3d"], float)
     is_dom, dom_labels = domain_mask(sub, domain)
     if is_dom.sum() < 20 or (~is_dom).sum() < 20:
@@ -221,20 +450,37 @@ def main():
             rows = rows[:1]
         meta = rows[0]
         print(f"\n=== {d}  ({len(rows)} interface-strata, loader={meta['loader']}) ===")
-        t0 = time.time()
-        try:
-            s = load_dataset(d, meta["loader"], args.data_root,
-                             meta["technology"], float(meta["z_spacing"]))
-        except Exception as e:
-            print(f"  LOAD FAILED: {type(e).__name__}: {str(e)[:160]}")
-            continue
-        s = ensure_lognorm(s)
-        norm = s.uns.get("_morphode_normalized", "already log-normalized")
-        print(f"  loaded {s.n_obs:,} cells, {s.obs['section_id'].nunique()} sections "
-              f"in {time.time()-t0:.0f}s  [{norm}]")
+        # Group by source_file: rows naming a per-specimen file load that file
+        # individually; the rest share one whole-dataset load (key "").
+        by_src = {}
+        for r in rows:
+            by_src.setdefault(r.get("source_file", "") or "", []).append(r)
+        cache = {}   # source_file -> (sample, norm_tag)  loaded lazily & reused
         out = []
         for r in rows:
+            key = r.get("source_file", "") or ""
+            if key not in cache:
+                t0 = time.time()
+                try:
+                    if key:
+                        s = load_single_file(d, args.data_root, key)
+                    else:
+                        s = load_dataset(d, meta["loader"], args.data_root,
+                                         meta["technology"], float(meta["z_spacing"]))
+                except Exception as e:
+                    print(f"  LOAD FAILED [{key or 'whole'}]: {type(e).__name__}: {str(e)[:150]}")
+                    cache[key] = (None, None)
+                    continue
+                s = ensure_lognorm(s)
+                norm = s.uns.get("_morphode_normalized", "already log-normalized")
+                print(f"  loaded [{key or 'whole'}] {s.n_obs:,} cells, "
+                      f"{s.obs['section_id'].nunique()} sections in {time.time()-t0:.0f}s  [{norm}]")
+                cache[key] = (s, norm)
+            s, norm = cache[key]
+            if s is None:
+                continue
             res = run_interface(s, d, r["domain"], r["stratum"], n_perm=args.n_perm)
+            import gc; gc.collect()   # release per-interface geometry before the next
             if "skip" in res:
                 print(f"  - {r['domain']:26s} [{r['stratum']:>8}]  SKIP: {res['skip']}")
                 continue
@@ -253,7 +499,11 @@ def main():
             with open(fp, "w", newline="") as fh:
                 w = csv.DictWriter(fh, fieldnames=list(out[0].keys()))
                 w.writeheader(); w.writerows(out)
-            print(f"  wrote {fp} ({len(out)} rows)")
+            try:
+                rel = os.path.relpath(fp)
+            except ValueError:
+                rel = fp
+            print(f"  wrote {rel} ({len(out)} rows)")
 
     if grand:
         total = sum(r["n_survive"] for r in grand)

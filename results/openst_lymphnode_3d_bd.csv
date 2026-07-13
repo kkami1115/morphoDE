@@ -1,2 +1,2 @@
 dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
-acsta_arabidopsis,epidermis,all,16378,6317,2106,0.5544,11,12,0.2652,AT2G43290;AT3G47470;AT1G67865;AT2G39800;AT2G34430;AT3G15353,11,12
+openst_lymphnode_3d,tumor,all,1097769,296465,98822,0.5428,12,12,0.2308,RPS29;CD74;S100A7;DHCR7;IGHG3;IGKC,12,12

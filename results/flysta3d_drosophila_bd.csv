@@ -1,0 +1,18 @@
+dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
+flysta3d_drosophila,midgut,E14-16h,15295,1984,662,1.0,7,12,0.6045,Act57B;Ipod;nur;Tpc2;CG9083;TwdlF,7,12
+flysta3d_drosophila,midgut,E16-18h,14634,2603,868,0.9731,8,12,0.4334,CG32073;CG13059;CG15423;CG13060;Nplp2;asRNA:CR45663,8,12
+flysta3d_drosophila,midgut,L1,17787,2864,955,0.8469,8,12,0.3082,CG8157;FASN1;epsilonTry;MtnA;betaTry;Nplp2,7,12
+flysta3d_drosophila,midgut,L2,64658,29012,9671,0.492,11,12,1.1948,deltaTry;Pebp1;CG8997;CG7953;pre-rRNA:CR45856;CG14302,11,12
+flysta3d_drosophila,midgut,L3,43310,14358,4786,0.7226,9,12,1.1373,Sgs5;deltaTry;Sgs8;Sgs7;CG8664;epsilonTry,10,12
+flysta3d_drosophila,epidermis,E14-16h,15295,6279,2093,0.6064,6,12,0.5899,Phk-3;MtnA;Nplp2;Cpr65Ea;CG15022;CG30413,6,12
+flysta3d_drosophila,epidermis,E16-18h,14634,4788,1596,0.6818,11,12,0.4946,CG32214;CG13068;CG15212;CG13217;Nplp2;CG30413,11,12
+flysta3d_drosophila,epidermis,L1,17787,4206,1402,0.5305,6,12,0.3101,CG12310;CG9877;CG32189;PIG-Z;Lcp65Ag3;CG13545,6,12
+flysta3d_drosophila,epidermis,L2,64658,7679,2560,0.3153,3,12,0.9301,CG11368;CG17108;CG14277;Jon99Cii;Jon99Ciii;Cpr47Eg,3,12
+flysta3d_drosophila,epidermis,L3,43310,3952,1318,0.5824,5,12,1.0064,Sgs8;CG7606;Jon99Cii;Jon66Ci;Jon99Ciii;Sgs7,10,12
+flysta3d_drosophila,carcass,E14-16h,15295,680,227,0.1516,11,12,0.3804,CG8306;eEF2;Osi6;CG5177;Ald1;CG15282,11,12
+flysta3d_drosophila,carcass,E16-18h,14634,1233,411,0.5328,5,12,0.7896,Nplp2;CG13059;CG13060;nur;CG13217;asRNA:CR45663,5,12
+flysta3d_drosophila,carcass,L1,17787,3178,1060,0.3446,3,12,0.4594,HnRNP-K;Act57B;Lcp65Ag2;Mlp60A;Cpr47Eg;dpr2,3,12
+flysta3d_drosophila,carcass,L2,64658,7164,2388,0.0738,10,12,0.6614,RpL32;RpS2;Lcp65Ag2;CG42305;Lcp65Ag1;Lcp65Ag3,10,12
+flysta3d_drosophila,carcass,L3,43310,6499,2167,0.4264,8,12,0.7715,Mlc2;Sgs8;Sgs5;Sgs7;Sgs3;CG43679,8,12
+flysta3d_drosophila,fat body,L2,64658,6540,2180,0.4133,5,12,0.4859,betaTry;yip7;Jon65Aiv;CG14302;regucalcin;deltaTry,5,12
+flysta3d_drosophila,fat body,L3,43310,7450,2484,0.6906,12,12,0.4571,Jon99Fi;MtnA;Jon25Biii;Jon66Ci;Jon99Ciii;Jon99Cii,6,12
