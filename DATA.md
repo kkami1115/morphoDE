@@ -55,7 +55,7 @@ Requires `python3` and `curl` (optional `zstd` only for `--compress`).
 | 6 | `mosta_mouse_embryo` | MOSTA: mouse organogenesis atlas | mouse | CNP0001543 / STDS0000058 | CNGB | auto |
 | 7 | `whole_mouse_embryo_3d_cngb` | 3D whole mouse embryo organogenesis (bioRxiv 2024) | mouse | CNP0005981 | CNGB (CNSA) | manual² |
 | 8 | `flysta3d_drosophila` | Flysta3D: Drosophila embryo/larva 3D maps | drosophila | CNP0002189 / STDS0000060 | CNGB | auto |
-| 9 | `flysta3d_v2_drosophila` | Flysta3D-v2: Drosophila 3D multi-omics atlas | drosophila | STDS0000398 (+ Mendeley) | CNGB | auto |
+| 9 | `flysta3d_v2_drosophila` | Flysta3D-v2: Drosophila 3D multi-omics atlas | drosophila | STDS0000398 | CNGB | auto |
 | 10 | `prista4d_planarian` | PRISTA4D: planarian regeneration 4D atlas | planaria | STT0000028 | CNGB | auto |
 | 11 | `acsta_arabidopsis` | ACSTA: Arabidopsis spatiotemporal atlas | arabidopsis | STDS0000104 | CNGB | auto |
 
@@ -78,9 +78,12 @@ it will not produce a partial mirror.
   follows GEO terms) — see each series page.
 - `cerebellum_crossspecies_spatial` license is listed as **verify** in the
   catalog — confirm terms at the publisher before redistribution.
-- `flysta3d_v2_drosophila` multi-omics supplements are partly on Mendeley Data
-  (`doi:10.17632/tvvjfr3c6j.1`); the 3D Stereo-seq `.h5ad` used here come from the
-  STOmicsDB collection.
+- `flysta3d_v2_drosophila`: **all** files used here — Stereo-seq, scRNA, and
+  scATAC (including `ATAC_CNS` and `ATAC_whole_embedding`) — are served by the
+  CNGB collection `STDS0000398`; verified that the local file set matches the CNGB
+  enumeration exactly (80/80). A Mendeley Data mirror of the multi-omics atlas
+  exists (`doi:10.17632/tvvjfr3c6j.1`) but is **not required** — the downloader
+  fetches everything from CNGB.
 
 This repository's own code, skill, and derived tables/figures are MIT-licensed
 (see `LICENSE`); each raw dataset retains its upstream license.
