@@ -247,11 +247,14 @@ A captured run is in [`results/smoke_test.log`](results/smoke_test.log).
   The full comparison is in
   [`results/reproduction_check.csv`](results/reproduction_check.csv) (fresh count,
   published count, `n_band`, `genuine_frac`, match flag per row).
-- **The geometry is exact.** Interface band-cell counts (`n_band`) and the
-  genuine-open-surface fraction match the published values across datasets
-  (e.g. acsta 2106, openst 98822, cerebellum molecular-layer 1 412 160, mosta
-  per-domain `n_band` to the cell), confirming the coordinate assembly and mesh
-  extraction re-derive the published interface.
+- **The geometry re-derives to the cell.** Interface band-cell counts (`n_band`)
+  match the published value exactly for **125 of the 126** interface–strata
+  (e.g. acsta 2106, cerebellum molecular-layer 1 412 160, mosta per-domain
+  `n_band` to the cell), confirming the coordinate assembly and mesh extraction
+  reproduce the published interface. The one exception is openst
+  (fresh 92 853 vs published 98 822, a ~6 % difference; the tumor call is still
+  12/12) — the published openst run used a slightly different assembly of the
+  single aligned volume that the shipped loader does not reproduce bit-for-bit.
 - **The single non-match is a corrected normalization.** The
   zesta Segmental-Plate interface gives 8/12 here vs the published 10/12. The
   published run fed this interface through the DE step with `is_raw=True`, which
