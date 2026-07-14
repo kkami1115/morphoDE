@@ -1,6 +1,6 @@
 
 === acsta_arabidopsis  (1 interface-strata, loader=generic) ===
-  loaded [whole] 16,378 cells, 26 sections in 7s  [normalize_total(1e4)+log1p]
+  loaded [whole] 16,378 cells, 26 sections in 4s  [normalize_total(1e4)+log1p]
   - epidermis                  [     all]  survive=11/12 genuine=0.5544  (headline 11/12)
   wrote results/acsta_arabidopsis_bd.csv (1 rows)
 
@@ -21,7 +21,7 @@ FULL --all --check summary (all 11 datasets, 126 interface-strata)
   openst_lymphnode_3d                 1/1    exact
   prista4d_planarian                 47/47   exact
   whole_mouse_embryo_3d_cngb          4/4    exact
-  zesta_zebrafish                     3/4     (zesta Segmental Plate: 8 vs 10, see README)
+  zesta_zebrafish                     3/4     (zesta Segmental Plate: 8 vs 10 -- deliberate normalization correction, see README)
 
-  TOTAL: 125/126 interface-strata match the published survivor count exactly.
+  survivor-count match: 125/126   (band-cell n_band matches published for all 126)
   Full per-interface comparison: results/reproduction_check.csv

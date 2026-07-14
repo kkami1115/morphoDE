@@ -69,7 +69,7 @@ mosta_mouse_embryo,Cavity,all,78176,0.6063,5,12,5,yes
 mosta_mouse_embryo,Connective tissue,all,88100,0.7717,1,12,1,yes
 mosta_mouse_embryo,Muscle,all,65242,0.8134,3,12,3,yes
 mosta_mouse_embryo,Brain,all,46951,0.7455,4,12,4,yes
-openst_lymphnode_3d,tumor,all,92853,0.5358,12,12,12,yes
+openst_lymphnode_3d,Tumor+Tumor_Keratin_Pearl,all,98822,0.5428,12,12,12,yes
 prista4d_planarian,l3,0hpa1,6876,0.5311,11,12,11,yes
 prista4d_planarian,l3,0hpa2,12435,0.4808,11,12,11,yes
 prista4d_planarian,l3,10dpa1,2594,0.3498,3,12,3,yes

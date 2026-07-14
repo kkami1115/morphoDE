@@ -1,5 +1,5 @@
 dataset,loader,technology,z_spacing,domain,contrast,stratum,stratum_col,truth_survive,truth_tested,truth_n_band,source_file
-openst_lymphnode_3d,generic,openst,1.0,tumor,nontumor,all,,12,12,98822,
+openst_lymphnode_3d,generic,openst,1.0,Tumor+Tumor_Keratin_Pearl,nontumor,all,,12,12,98822,
 acsta_arabidopsis,generic,stereoseq,1.0,epidermis,rest,all,,11,12,2106,
 zesta_zebrafish,generic,stereoseq,15.0,Notochord,rest,all,,11,12,1306,zf18_stereoseq.h5ad
 zesta_zebrafish,generic,stereoseq,15.0,Nervous System,rest,all,,11,12,4690,zf24_stereoseq.h5ad

@@ -76,6 +76,15 @@ def domain_mask(adata, domain):
     import numpy as np
     ann = adata.obs["annotation"].astype(str).values
     vocab = set(ann)
+    # 0) Explicit multi-label domain: recipes may list several exact labels joined
+    #    by '+', for a domain the published run matched as a union of distinct
+    #    annotation classes (e.g. openst tumor = 'Tumor' + 'Tumor_Keratin_Pearl',
+    #    which the headline picked up via the 'umor' substring). Match each exactly.
+    if "+" in domain:
+        want = {_norm(p) for p in domain.split("+")}
+        keep = {v for v in vocab if _norm(v) in want}
+        if keep:
+            return np.isin(ann, list(keep)), sorted(keep)
     # 1) Exact label (case-insensitive) — the published runs used np.isin(ann,[domain])
     #    whenever the domain name was itself a label. This is important where the
     #    vocabulary has *compound* labels ("epidermis/CNS", "fat body/trachea",

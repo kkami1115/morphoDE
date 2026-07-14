@@ -1,2 +1,2 @@
 dataset,domain,stratum,n_stratum_cells,n_domain_cells,n_band,genuine_frac,n_survive,n_tested,max_abs_lfc,top_genes,truth_survive,truth_tested
-openst_lymphnode_3d,tumor,all,1097769,278558,92853,0.5358,12,12,0.2534,B2M;RPS29;CD74;DHCR7;IGHG3;IGKC,12,12
+openst_lymphnode_3d,Tumor+Tumor_Keratin_Pearl,all,1097769,296465,98822,0.5428,12,12,0.2308,RPS29;CD74;S100A7;DHCR7;IGHG3;IGKC,12,12
